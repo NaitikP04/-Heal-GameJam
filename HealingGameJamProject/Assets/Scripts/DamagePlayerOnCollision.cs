@@ -8,10 +8,10 @@ public class DamagePlayerOnCollision : MonoBehaviour
     Health health;
     Collider2D playerBody;
     Collider2D selfBody;
+    public bool doDamage = true;
 
     [SerializeField] int damageAmount = 1;
     
-
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -22,6 +22,6 @@ public class DamagePlayerOnCollision : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other == playerBody){ health.TakeDamage(damageAmount); }
+        if (doDamage && other == playerBody){ health.TakeDamage(damageAmount); }
     }
 }

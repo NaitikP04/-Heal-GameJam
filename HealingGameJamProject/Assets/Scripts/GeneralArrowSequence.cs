@@ -29,6 +29,7 @@ public class GeneralArrowSequence : MonoBehaviour
     // For destruction:
     EnemyChase enemyChase;
     Animator animator;
+    DamagePlayerOnCollision damagePlayerOnCollision;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class GeneralArrowSequence : MonoBehaviour
         iconTransformOffset = new Vector3(0f, (float)iconbarPixelOffset/32f, 0f);
         enemyChase = gameObject.GetComponent<EnemyChase>();
         animator = gameObject.GetComponent<Animator>();
+        damagePlayerOnCollision = gameObject.GetComponentInChildren<DamagePlayerOnCollision>();
 
         SupplyArrowSequence();
         InitializeArrowIcons();
@@ -60,7 +62,7 @@ public class GeneralArrowSequence : MonoBehaviour
             currentState.RemoveAt(0);
             
             // If this made the list empty, destroy ourselves.
-            if (currentState.Count <= 0){ StartCoroutine(DestroySelf()); }
+            if (currentState.Count <= 0){ StartCoroutine(DestroySelf(1.5f)); }
 
                 //print($"Healing progress! The remaining sequence is: {string.Join(", ", currentState)}!");
 
@@ -146,13 +148,14 @@ public class GeneralArrowSequence : MonoBehaviour
         else { iconRenderer.color = new Color(custom.x, custom.y, custom.z, custom.w); }
     }
 
-    IEnumerator DestroySelf()
+    IEnumerator DestroySelf(float delay)
     {
-        // Stop moving and animating...
+        // Stop moving, animating, and doing damage...
         enemyChase.stopped = true;
         animator.enabled = false;
+        damagePlayerOnCollision.doDamage = false;
         // Wait 1.5 seconds...
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(delay);
         // And fucking die.
         Destroy(gameObject.transform.parent.gameObject);
     }
