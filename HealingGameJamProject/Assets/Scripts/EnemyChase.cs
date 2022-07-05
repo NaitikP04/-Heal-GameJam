@@ -21,16 +21,4 @@ public class EnemyChase : MonoBehaviour
         rgbd2d.velocity = direction.normalized * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Health othersHealth = collision.gameObject.GetComponent<Health>();
-        
-        if (othersHealth)       //collision.gameObject == targetGameobject
-        {
-            Debug.Log("Enemy hit");
-            //othersHealth.health -= 1;
-        }
-
-    }
-
 }

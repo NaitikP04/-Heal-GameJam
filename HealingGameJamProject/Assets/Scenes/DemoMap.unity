@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1424897303}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -879,6 +879,7 @@ MonoBehaviour:
   fullHeart: {fileID: -1520332865, guid: 00234d348801e854580271c616c73c76, type: 3}
   emptyHeart: {fileID: 12032787, guid: 00234d348801e854580271c616c73c76, type: 3}
   halfHeart: {fileID: 1644105133, guid: 00234d348801e854580271c616c73c76, type: 3}
+  invulnerableTime: 0.5
 --- !u!1 &1827439798
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +893,7 @@ GameObject:
   - component: {fileID: 1827439804}
   - component: {fileID: 1827439803}
   - component: {fileID: 1827439802}
+  - component: {fileID: 1827439805}
   m_Layer: 0
   m_Name: PseudoZombie
   m_TagString: Untagged
@@ -960,7 +962,7 @@ Transform:
   m_GameObject: {fileID: 1827439798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5102508, y: -0.014109828, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1000,7 +1002,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1827439804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1011,7 +1013,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1027,6 +1029,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1827439805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827439798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be788677938f5d4aa3c9278206c9600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
 --- !u!1 &1849072318
 GameObject:
   m_ObjectHideFlags: 0
