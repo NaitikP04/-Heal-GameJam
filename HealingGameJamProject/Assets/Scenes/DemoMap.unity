@@ -658,7 +658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1315627905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   zomb: {fileID: 6959260272210400259, guid: 33e8355e2ae99c0499a0541508ca9a60, type: 3}
   innerRadius: 10
   outerRadius: 20
-  delay: 1
+  delay: 0
 --- !u!4 &1315627906
 Transform:
   m_ObjectHideFlags: 0
