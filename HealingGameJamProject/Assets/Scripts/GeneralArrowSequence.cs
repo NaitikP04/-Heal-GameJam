@@ -11,14 +11,14 @@ public class GeneralArrowSequence : MonoBehaviour
     //              2: 3-4 arrow keys needed to heal
     //              3: 5-6 arrow keys needed to heal
     List<string> sequence = new List<string>();
-    List<string> currentState = new List<string>();
+    List<string> currentState;
     //Random rnd = new Random();
 
     // Start is called before the first frame update
     void Start()
     {
         SupplyArrowSequence();
-        currentState = sequence;
+        currentState = new List<string>(sequence);
     }
 
     // Update is called once per frame
@@ -36,15 +36,17 @@ public class GeneralArrowSequence : MonoBehaviour
         if (key == currentState[0])
         {
             currentState.RemoveAt(0);
-            if (currentState.Count <= 0){ Destroy(this.gameObject); }
+            if (currentState.Count <= 0){ DestroySelf(); }
             print($"Healing progress! The remaining sequence is: {string.Join(", ", currentState)}!");
         }
         else
         {
-            currentState = sequence;
+            currentState = new List<string>(sequence);
             print($"Healing failure! The sequence has reverted to: {string.Join(", ", currentState)}!");
         }
     }
+
+    void DestroySelf() { Destroy(this.gameObject); }
 
     void SupplyArrowSequence()
     {
