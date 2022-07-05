@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyChase : MonoBehaviour
 {
-    [SerializeField] Transform targetDestination;
+    Transform targetDestination;
     [SerializeField] float speed;
 
     Rigidbody2D rgbd2d;
@@ -14,6 +14,7 @@ public class EnemyChase : MonoBehaviour
 
     private void Awake()
     {
+        targetDestination = GameObject.FindWithTag("Player").transform;
         rgbd2d = GetComponent<Rigidbody2D>();
         childTransforms = GetComponentsInChildren<Transform>();
         sprite = GetComponent<SpriteRenderer>();

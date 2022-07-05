@@ -30,6 +30,7 @@ public class GeneralArrowSequence : MonoBehaviour
     EnemyChase enemyChase;
     Animator animator;
     DamagePlayerOnCollision damagePlayerOnCollision;
+    bool dying = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,7 @@ public class GeneralArrowSequence : MonoBehaviour
 
     void LogKeypress(string key)
     {
-        if (key == currentState[0])
+        if (!dying && key == currentState[0])
         {
             // If it's a match, remove the item from the current list.
             currentState.RemoveAt(0);
@@ -71,7 +72,7 @@ public class GeneralArrowSequence : MonoBehaviour
             UpdateArrowIcon(sequence.Count - currentState.Count - 1, true);
 
         }
-        else
+        else if (!dying)
         {
             // Otherwise, it was the wrong keypress. We restart from the top.
             currentState = new List<string>(sequence);
@@ -150,6 +151,7 @@ public class GeneralArrowSequence : MonoBehaviour
 
     IEnumerator DestroySelf(float delay)
     {
+        dying = true;
         // Stop moving, animating, and doing damage...
         enemyChase.stopped = true;
         animator.enabled = false;
