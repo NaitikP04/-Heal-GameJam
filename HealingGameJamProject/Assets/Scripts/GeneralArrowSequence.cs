@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneralArrowSequence : MonoBehaviour
 {
-   
+    [Header("==== DATA ====")]
     [SerializeField] int difficulty = 2;
     // difficulty determines the number of arrow keys needed to heal the zombie.
     // difficulty = 1: 1-2 arrow keys needed to heal
@@ -12,12 +12,33 @@ public class GeneralArrowSequence : MonoBehaviour
     //              3: 5-6 arrow keys needed to heal
     List<string> sequence = new List<string>();
     List<string> currentState;
-    //Random rnd = new Random();
+    
+    [Header("=== DISPLAY ===")]
+    [SerializeField] Color zombieColor;
+    // The prefab we use for arrow icons. The sprite gets changed!
+    [SerializeField] GameObject arrowIcon;
+    [SerializeField] Sprite UP_sprite;
+    [SerializeField] Sprite DOWN_sprite;
+    [SerializeField] Sprite LEFT_sprite;
+    [SerializeField] Sprite RIGHT_sprite;
+    List<GameObject> arrowIcons = new List<GameObject>();
+    // The offset for each arrow icon. For now, we set it to 20f/32f. (1f/32f is 1 pixel).
+    [SerializeField] int iconbarPixelOffset = 20;
+    Vector3 iconTransformOffset;
+
+    // For destruction:
+    EnemyChase enemyChase;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        iconTransformOffset = new Vector3(0f, (float)iconbarPixelOffset/32f, 0f);
+        enemyChase = gameObject.GetComponent<EnemyChase>();
+        animator = gameObject.GetComponent<Animator>();
+
         SupplyArrowSequence();
+        InitializeArrowIcons();
         currentState = new List<string>(sequence);
     }
 
@@ -35,18 +56,106 @@ public class GeneralArrowSequence : MonoBehaviour
     {
         if (key == currentState[0])
         {
+            // If it's a match, remove the item from the current list.
             currentState.RemoveAt(0);
-            if (currentState.Count <= 0){ DestroySelf(); }
-            print($"Healing progress! The remaining sequence is: {string.Join(", ", currentState)}!");
+            
+            // If this made the list empty, destroy ourselves.
+            if (currentState.Count <= 0){ StartCoroutine(DestroySelf()); }
+
+                //print($"Healing progress! The remaining sequence is: {string.Join(", ", currentState)}!");
+
+            // Recolor the icon to signal that we've completed it.
+            // We obtain the index through comparing the lengths of currentState and sequence.
+            UpdateArrowIcon(sequence.Count - currentState.Count - 1, true);
+
         }
         else
         {
+            // Otherwise, it was the wrong keypress. We restart from the top.
             currentState = new List<string>(sequence);
-            print($"Healing failure! The sequence has reverted to: {string.Join(", ", currentState)}!");
+            // Recolor all icons back to our zombie color.
+            for (int i = 0; i < sequence.Count; i++){ UpdateArrowIcon(i, false); }
+
+                //print($"Healing failure! The sequence has reverted to: {string.Join(", ", currentState)}!");
         }
     }
 
-    void DestroySelf() { Destroy(this.gameObject); }
+    void InitializeArrowIcons()
+    {
+        // Initializes the set of arrow icons.
+
+        // Formula for calculating the sprite position based on the index.
+        // Here, we move the first one over to make room for the rest.
+        iconTransformOffset.x -= 4*(sequence.Count-1)/32f;
+        // Here, we give each set of arrows a slightly different depth, so there's no z-fighting.
+        iconTransformOffset.z += Random.Range(0f, 0.99999f);
+
+        // For each arrow in our sequence:
+        for (int i = 0; i < sequence.Count; i++)
+        {   
+            // Instantiate...
+            GameObject icon = Instantiate(  arrowIcon,                                      // an icon,
+                                            this.transform.position + iconTransformOffset,  // at our position + offset,
+                                            Quaternion.identity,                            // with no rotation,
+                                            this.transform);                                // as a child of ourselves.
+
+            // Change the icon's sprite depending on what arrow we represent.
+            SpriteRenderer iconRenderer = icon.GetComponent<SpriteRenderer>();
+            switch (sequence[i])    
+            {
+                case "up":      iconRenderer.sprite = UP_sprite;       break;
+                case "down":    iconRenderer.sprite = DOWN_sprite;     break;
+                case "left":    iconRenderer.sprite = LEFT_sprite;     break;
+                case "right":   iconRenderer.sprite = RIGHT_sprite;    break;
+            }
+
+            // Change the icon's color to the zombieColor.
+            iconRenderer.color = zombieColor;
+
+            // Add it to the list! We use this list to change color later on.
+            arrowIcons.Add(icon);
+            // Update the offset for the next loop.
+            iconTransformOffset.x += 8f/32f;
+        }   
+    }
+
+    void UpdateArrowIcon(int index, bool done, bool doCustomColor=false, Vector4 custom=default(Vector4))
+    {
+        // Updates an arrow icon with a new color.
+        // params:
+        // int index: The position in the list arrowIcons of the arrow we're updating.
+        // bool done: Whether this icon represents an arrow that has already been pressed.
+        //      This generally corresponds to color: if done is true, we change the color to
+        //                                           (253f/255f, 151f/255f, 31f/255f, 1), orange.
+        //                                           if done is false, we change the color to
+        //                                           the zombie color defined in the inspector.                                           
+        // bool doCustomColor: If this is true, we overwrite the color with the one supplied by...
+        // Vector4 customColor: The customColor used if doCustomColor is true.
+
+        // Get the SpriteRenderer for the given icon.
+        SpriteRenderer iconRenderer = arrowIcons[index].GetComponent<SpriteRenderer>();
+
+        // If we're not doing a custom color:
+        if (!doCustomColor){
+            // If the arrow is complete, make it orange.
+            if (done){ iconRenderer.color = new Color(253f/255f, 151f/255f, 31f/255f, 1); }
+            // Otherwise, reset it to the zombieColor.
+            else { iconRenderer.color = zombieColor; }
+        }
+        // If we are using a custom color, just set it to that.
+        else { iconRenderer.color = new Color(custom.x, custom.y, custom.z, custom.w); }
+    }
+
+    IEnumerator DestroySelf()
+    {
+        // Stop moving and animating...
+        enemyChase.stopped = true;
+        animator.enabled = false;
+        // Wait 1.5 seconds...
+        yield return new WaitForSeconds(1.5f);
+        // And fucking die.
+        Destroy(gameObject.transform.parent.gameObject);
+    }
 
     void SupplyArrowSequence()
     {

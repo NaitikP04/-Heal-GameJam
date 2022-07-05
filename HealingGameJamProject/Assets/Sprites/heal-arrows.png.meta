@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7164f5355e1b3c84695c2ed4ccdad150
+guid: 41bb98ff60136cb48b2578eb8c79fee0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -116,148 +116,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: doctor-idle_0
+      name: heal-arrows_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10
-        height: 30
+        width: 9
+        height: 9
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.44444445, y: 0.44444445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba2517b502bcf754ca1ba737ce0d900f
-      internalID: 1472604239
+      spriteID: 49903c6584deca24b8740ebfb240497f
+      internalID: 37620032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doctor-idle_1
+      name: heal-arrows_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 9
         y: 0
-        width: 10
-        height: 30
+        width: 9
+        height: 9
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.44444445, y: 0.44444445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d4e7f38eac7c4d4c970470a9b853237
-      internalID: -1136389094
+      spriteID: 838dca1a8678322479d0154843d3428a
+      internalID: 1706556047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doctor-idle_2
+      name: heal-arrows_2
       rect:
         serializedVersion: 2
-        x: 20
+        x: 18
         y: 0
-        width: 10
-        height: 30
+        width: 9
+        height: 9
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.44444445, y: 0.44444445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efc3bbced008fbd43a83e9e97d6dcd12
-      internalID: -1238406261
+      spriteID: fe7f1d5d649259543beb0f0f7e14ec9a
+      internalID: 1757996685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: doctor-idle_3
+      name: heal-arrows_3
       rect:
         serializedVersion: 2
-        x: 30
+        x: 27
         y: 0
-        width: 10
-        height: 30
+        width: 9
+        height: 9
       alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.44444445, y: 0.44444445}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c62e2c350f07f48b40c40340c037d5
-      internalID: -1233952770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: doctor-idle_4
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 10
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d5f79a6f346fb70419d540a39e9d0b32
-      internalID: 1205766702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: doctor-idle_5
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 0
-        width: 10
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 78ee7e89bef45da47b924d5f668b9217
-      internalID: -1387179139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: doctor-idle_6
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 10
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fad55eee3274038478ae802fb509b627
-      internalID: -1321762624
+      spriteID: b284e22088baef04bb49f501d458df0f
+      internalID: 705570701
       vertices: []
       indices: 
       edges: []
@@ -273,13 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      doctor-idle_2: -1238406261
-      doctor-idle_4: 1205766702
-      doctor-idle_6: -1321762624
-      doctor-idle_3: -1233952770
-      doctor-idle_5: -1387179139
-      doctor-idle_0: 1472604239
-      doctor-idle_1: -1136389094
+      heal-arrows_1: 1706556047
+      heal-arrows_0: 37620032
+      heal-arrows_2: 1757996685
+      heal-arrows_3: 705570701
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
