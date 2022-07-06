@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd2453f2e2f941449eb7cd798536818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetDestination: {fileID: 0}
   speed: 1
   stopped: 0
 --- !u!114 &6959260273347141073
@@ -370,4 +369,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be788677938f5d4aa3c9278206c9600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doDamage: 1
   damageAmount: 1

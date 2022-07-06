@@ -6,6 +6,9 @@ public class BasicPlayerMovement : MonoBehaviour
 {
     Rigidbody2D body;
     SpriteRenderer sprite;
+    Animator docAnimator;
+    //[SerializeField] Animation idleAnim;
+    //[SerializeField] Animation runAnim;
 
     public float maxVelocity = 5f;
     public float accelerationTime = 1f;
@@ -23,6 +26,7 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        docAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,8 +63,10 @@ public class BasicPlayerMovement : MonoBehaviour
 
         // SPRITE FLIPPING
         
-        if (horizontalAmt > 0){ sprite.flipX = true; }
-        if (horizontalAmt < 0){ sprite.flipX = false; }
+        if (horizontalAmt > 0){ sprite.flipX = false; }
+        if (horizontalAmt < 0){ sprite.flipX = true; }
+
+        docAnimator.SetBool("isMoving", !(horizontalAmt == 0 && verticalAmt == 0));
 
     }
 

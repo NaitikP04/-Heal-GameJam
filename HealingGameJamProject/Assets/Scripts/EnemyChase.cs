@@ -32,8 +32,8 @@ public class EnemyChase : MonoBehaviour
             foreach (Transform trans in childTransforms){ trans.position = this.transform.position; }
 
             // SPRITE FLIPPING
-            if (direction.x > 0){ sprite.flipX = true; }
-            if (direction.x < 0){ sprite.flipX = false; }
+            if (direction.x > 0){ sprite.flipX = false; }
+            if (direction.x < 0){ sprite.flipX = true; }
         }
         else { rgbd2d.velocity = Vector3.zero; }
     }
