@@ -40,6 +40,11 @@ public class BasicPlayerMovement : MonoBehaviour
         if (Mathf.Abs(horizontalAmt) > 0 && X_moving == false){
             // Only true if we WEREN'T moving horizontally, but we are now.
             X_moving = true;
+
+            // SPRITE FLIPPING
+            if (horizontalAmt > 0){ sprite.flipX = false; }
+            if (horizontalAmt < 0){ sprite.flipX = true; }
+
             StartCoroutine(AccelerateDecelerate(true, horizontalAmt, accelerationTime));
             }
         if (horizontalAmt == 0 && X_moving == true){
@@ -60,11 +65,6 @@ public class BasicPlayerMovement : MonoBehaviour
             Y_moving = false;
             StartCoroutine(AccelerateDecelerate(false, verticalAmt, decelerationTime));
             }
-
-        // SPRITE FLIPPING
-        
-        if (horizontalAmt > 0){ sprite.flipX = false; }
-        if (horizontalAmt < 0){ sprite.flipX = true; }
 
         docAnimator.SetBool("isMoving", !(horizontalAmt == 0 && verticalAmt == 0));
 
@@ -109,6 +109,11 @@ public class BasicPlayerMovement : MonoBehaviour
                 yield return null;
 
             }
+
+        if (acceleration == 0){
+                if (axis){ X_velocityModifier = 0;}
+                if (!axis){ Y_velocityModifier = 0;}
+        }
     }
 
     // FixedUpdate is NOT called once per frame

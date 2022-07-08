@@ -174,7 +174,7 @@ public class GeneralArrowSequence : MonoBehaviour
         for (int i = 0; i < length; i++){ sequence.Add(GetRandomArrow()); }
 
         // DEBUG CODE UNTIL PROPER DISPLAY CAN BE MADE
-        print(string.Join(", ", sequence));
+        //print(string.Join(", ", sequence));
     }
 
     string GetRandomArrow()
