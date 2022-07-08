@@ -155,7 +155,6 @@ public class GeneralArrowSequence : MonoBehaviour
         // Stop moving, animating, and doing damage...
         enemyChase.stopped = true;
         enemyChase.dying = true;
-        animator.enabled = false;
         damagePlayerOnCollision.doDamage = false;
         // Wait 1.5 seconds...
         yield return new WaitForSeconds(delay);
