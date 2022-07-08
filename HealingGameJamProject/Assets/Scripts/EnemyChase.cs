@@ -11,11 +11,11 @@ public class EnemyChase : MonoBehaviour
     Component[] childTransforms;
     SpriteRenderer sprite;
     Animator zombAnimator;
-
-    [HideInInspector] public bool stopped = false;
+    [HideInInspector] public bool dying = false;
 
     [Header("=== PARAMETERS ===")]
     public bool stopRandomly = true;
+    [HideInInspector] public bool stopped = false;
     public bool moveRandomly = true;
     bool randomNow;
     Vector3 randomDirection = new Vector3();
@@ -71,7 +71,7 @@ public class EnemyChase : MonoBehaviour
             if (Random.Range(1,7) == 4){
                 stopped = true;
                 yield return new WaitForSeconds(1);
-                stopped = false;
+                if (!dying){ stopped = false; }
             }
             else { yield return new WaitForSeconds(3); }
         }  
@@ -81,7 +81,7 @@ public class EnemyChase : MonoBehaviour
     {
         while (true)
         {
-            if (Random.Range(1,4) == 3){
+            if (Random.Range(1,5) == 1){
                 randomNow = true;
                 randomDirection = new Vector3(Random.Range(0f,1f),Random.Range(0f,1f),0f);
                 yield return new WaitForSeconds(1.5f);
