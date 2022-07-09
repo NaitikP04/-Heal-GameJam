@@ -13,6 +13,10 @@ public class Health : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
+    //[SerializeField] Animator suitcaseHealthbar;
+    // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
+
     // The amount of time after getting hurt that we're immune to damage.
     [SerializeField] float invulnerableTime = 0.5f;
     bool invulnerable = false;
@@ -37,6 +41,11 @@ public class Health : MonoBehaviour
                 hearts[i].enabled = false; 
             } 
         }
+
+        // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
+        //suitcaseHealthbar.SetInteger("Health", (int)health);
+        // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
+
     }
 
     public void TakeDamage(int amount, bool doInvulnerabilty=true)
