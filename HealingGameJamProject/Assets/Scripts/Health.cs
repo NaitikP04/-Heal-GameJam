@@ -7,45 +7,16 @@ using System;
 public class Health : MonoBehaviour
 {
     public float health;
-    public int numOfHearts;
 
-    public Image[] hearts;
-    public Sprite fullHeart;
-    public Sprite emptyHeart;
-
-    // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
-    //[SerializeField] Animator suitcaseHealthbar;
-    // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
+    [SerializeField] Animator suitcaseHealthbar;
 
     // The amount of time after getting hurt that we're immune to damage.
     [SerializeField] float invulnerableTime = 0.5f;
     bool invulnerable = false;
 
-    void Update(){
-        if(health > numOfHearts){
-            health = numOfHearts;
-        }
-                
-        for(int i = 0; i<hearts.Length; i ++){  //for each heart in the array
-            if(i < health){
-                hearts[i].sprite = fullHeart;
-            }
-            else{
-                hearts[i].sprite = emptyHeart;
-            }
-                              
-            if(i < numOfHearts){
-                hearts[i].enabled = true; 
-            }
-            else{
-                hearts[i].enabled = false; 
-            } 
-        }
-
-        // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
-        //suitcaseHealthbar.SetInteger("Health", (int)health);
-        // === FOR FUTURE USE ====== FOR FUTURE USE ====== FOR FUTURE USE ===
-
+    void Update()
+    {
+        suitcaseHealthbar.SetInteger("Health", (int)health);
     }
 
     public void TakeDamage(int amount, bool doInvulnerabilty=true)
