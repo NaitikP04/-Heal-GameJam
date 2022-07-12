@@ -66,12 +66,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 2
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &-2782356948472743277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,8 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72891d12d9d392c4f864b62ca9ad8350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  impacteffect: {fileID: 0}
+  speed: 20
+  rigiddbody: {fileID: -4019831408072940523}
 --- !u!1 &9100132745674131756
 GameObject:
   m_ObjectHideFlags: 0

@@ -202,9 +202,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  stopped: 0
+  dying: 0
   stopRandomly: 1
-  moveRandomlySometimes: 1
+  stopped: 0
+  moveRandomly: 1
 --- !u!114 &6959260273347141073
 MonoBehaviour:
   m_ObjectHideFlags: 0

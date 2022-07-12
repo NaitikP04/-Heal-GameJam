@@ -14,6 +14,9 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectile, firePosition.position, firePosition.rotation);
+
+            //Vector3 shootDir = e.shootPosition - firePosition.position.normalized;
+            //bulletTransform.getComponent<ProjectileBehavior>().Setup(shootDir);
         }
     }
 }
