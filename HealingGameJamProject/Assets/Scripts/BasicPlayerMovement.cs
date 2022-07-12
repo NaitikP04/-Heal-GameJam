@@ -7,8 +7,6 @@ public class BasicPlayerMovement : MonoBehaviour
     Rigidbody2D body;
     SpriteRenderer sprite;
     Animator docAnimator;
-    //[SerializeField] Animation idleAnim;
-    //[SerializeField] Animation runAnim;
 
     public float maxVelocity = 5f;
     public float accelerationTime = 1f;
@@ -20,6 +18,8 @@ public class BasicPlayerMovement : MonoBehaviour
     float verticalAmt;
     bool X_moving = false;
     bool Y_moving = false;
+
+    [HideInInspector] public string mostRecentDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +67,12 @@ public class BasicPlayerMovement : MonoBehaviour
             }
 
         docAnimator.SetBool("isMoving", !(horizontalAmt == 0 && verticalAmt == 0));
+
+        // The following code is used in PlayerAttack.
+        if (Input.GetKeyDown(KeyCode.W) && mostRecentDirection != "up"){ mostRecentDirection = "up"; }
+        if (Input.GetKeyDown(KeyCode.A) && mostRecentDirection != "left"){ mostRecentDirection = "left"; }
+        if (Input.GetKeyDown(KeyCode.S) && mostRecentDirection != "down"){ mostRecentDirection = "down"; }
+        if (Input.GetKeyDown(KeyCode.D) && mostRecentDirection != "right"){ mostRecentDirection = "right"; }
 
     }
 

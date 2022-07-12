@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Enemy Trigger
   - Enemy
   layers:
   - Default
@@ -39,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI
+    uniqueID: 2398279053
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

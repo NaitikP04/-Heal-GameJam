@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1161843556
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1161843557}
-  m_Layer: 0
-  m_Name: FirePosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1161843557
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161843556}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.125, y: 0.015, z: -0.02110407}
-  m_LocalScale: {x: 0.477905, y: 0.477905, z: 0.477905}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4709136697147848292}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4709136697147848294
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +16,6 @@ GameObject:
   - component: {fileID: 4709136697147848293}
   - component: {fileID: 4709136697147848289}
   - component: {fileID: 1397908136}
-  - component: {fileID: -5549175239238201248}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -66,8 +34,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1161843557}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -205,6 +172,7 @@ MonoBehaviour:
   maxVelocity: 3
   accelerationTime: 0.2
   decelerationTime: 0.2
+  mostRecentDirection: 
 --- !u!114 &4709136697147848289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,17 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11569f2272d024149b4d6e53811bb461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePosition: {fileID: 1161843557}
   projectile: {fileID: 2952579133312271365, guid: a7217beb5d866ef4ca963d3e2d9cb934, type: 3}
---- !u!114 &-5549175239238201248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4709136697147848294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99486175fba2a0642a21181bcc0b948b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ammo: 5
+  suitcaseAmmobar: {fileID: 0}

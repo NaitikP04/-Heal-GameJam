@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6959260272210400284}
-  - component: {fileID: -6531726019898030276}
   m_Layer: 0
   m_Name: Demo Pseudozombie
   m_TagString: Enemy
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6531726019898030276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6959260272210400259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ebd273f46d1194d92bdc4ec71aabdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6959260273347141082
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,9 +239,10 @@ GameObject:
   - component: {fileID: 6959260273594552628}
   - component: {fileID: 6959260273594552635}
   - component: {fileID: 6959260273594552633}
+  - component: {fileID: 2182389814793355077}
   m_Layer: 9
   m_Name: Trigger
-  m_TagString: Untagged
+  m_TagString: Enemy Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,3 +375,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doDamage: 1
   damageAmount: 1
+--- !u!114 &2182389814793355077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959260273594552639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3677841e2eb5acb41b824300a89f0bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

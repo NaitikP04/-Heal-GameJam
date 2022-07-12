@@ -156,7 +156,7 @@ Transform:
   - {fileID: 795358464}
   - {fileID: 569195313}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &150040948
 GameObject:
@@ -205,7 +205,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.87643427, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -315,7 +315,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 1312987751, guid: 8e31e7fb8a828a4499c6b40211538289, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -991,7 +991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 42}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1056337847
@@ -1059,7 +1059,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1315627904
 GameObject:
@@ -1107,7 +1107,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355523778
 GameObject:
@@ -1319,7 +1319,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: 9193eb71e8c6a7c47a944f5c0c1b64bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1408,7 +1408,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1896688243
   m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1898643579
@@ -1442,6 +1442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1978231958}
   - component: {fileID: 1978231959}
+  - component: {fileID: 1978231960}
   m_Layer: 0
   m_Name: Suitcase Ammo
   m_TagString: Untagged
@@ -1504,7 +1505,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: -1832447208, guid: a2704c74474c45a4e9af8293857c66bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1516,6 +1517,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1978231960
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978231957}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 572e3ea142d5e0c4494e9abbf0e524e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4709136696416846710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1523,37 +1544,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
-      propertyPath: hearts.Array.size
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1397908136, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
+      propertyPath: suitcaseAmmobar
+      value: 
+      objectReference: {fileID: 1978231960}
     - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
       propertyPath: suitcaseHealthbar
       value: 
       objectReference: {fileID: 290619627}
-    - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
-      propertyPath: hearts.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
-      propertyPath: hearts.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
-      propertyPath: hearts.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
-      propertyPath: hearts.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
-      propertyPath: hearts.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4709136697147848292, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4709136697147848292, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1594,6 +1595,10 @@ PrefabInstance:
     - target: {fileID: 4709136697147848292, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709136697147848293, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
+      propertyPath: maxVelocity
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4709136697147848294, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
       propertyPath: m_Name

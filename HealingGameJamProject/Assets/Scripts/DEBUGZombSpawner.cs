@@ -22,7 +22,7 @@ public class DEBUGZombSpawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(zomb, GetSpawnPoint(), Quaternion.identity);
+            Instantiate(zomb, GetSpawnPoint(), Quaternion.identity, this.transform);
             yield return new WaitForSeconds(delay);
         }
     }
