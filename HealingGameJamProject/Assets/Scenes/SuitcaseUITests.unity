@@ -609,6 +609,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1161843557, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.074
+      objectReference: {fileID: 0}
     - target: {fileID: 4709136697147848289, guid: 74989d7af7816b94aa2c236c0ebbd5c2, type: 3}
       propertyPath: suitcaseHealthbar
       value: 

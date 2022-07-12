@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 4709136697147848293}
   - component: {fileID: 4709136697147848289}
   - component: {fileID: 1397908136}
+  - component: {fileID: -5549175239238201248}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -217,15 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  numOfHearts: 5
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fullHeart: {fileID: -1520332865, guid: 00234d348801e854580271c616c73c76, type: 3}
-  emptyHeart: {fileID: 12032787, guid: 00234d348801e854580271c616c73c76, type: 3}
+  suitcaseHealthbar: {fileID: 0}
   invulnerableTime: 0.5
 --- !u!114 &1397908136
 MonoBehaviour:
@@ -241,3 +234,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePosition: {fileID: 1161843557}
   projectile: {fileID: 2952579133312271365, guid: a7217beb5d866ef4ca963d3e2d9cb934, type: 3}
+--- !u!114 &-5549175239238201248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709136697147848294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99486175fba2a0642a21181bcc0b948b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
