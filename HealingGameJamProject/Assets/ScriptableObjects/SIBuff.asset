@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SIBuff
   m_EditorClassIdentifier: 
   speedMultiplier: 2.5
+  powerUpTime: 6

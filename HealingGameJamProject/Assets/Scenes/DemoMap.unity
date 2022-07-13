@@ -134,27 +134,14 @@ GameObject:
   - component: {fileID: 57493601}
   - component: {fileID: 57493600}
   - component: {fileID: 57493599}
-  - component: {fileID: 57493598}
+  - component: {fileID: 57493602}
   m_Layer: 0
-  m_Name: Square
+  m_Name: SIsquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &57493598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57493597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ce8b1d8bf01ae949810682bdfdcbc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerupEffect: {fileID: 11400000, guid: 7ce20f9e79475324eb26e78a58962ec3, type: 2}
 --- !u!61 &57493599
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -248,6 +235,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &57493602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57493597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce8b1d8bf01ae949810682bdfdcbc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupEffect: {fileID: 11400000, guid: 7ce20f9e79475324eb26e78a58962ec3, type: 2}
 --- !u!1 &110936118
 GameObject:
   m_ObjectHideFlags: 0

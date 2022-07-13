@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
             if (doInvulnerabilty){ StartCoroutine(TakeDamage_make_invulnerable()); }
         }
     }
-    public IEnumerator TakeDamage_make_invulnerable()
+    private IEnumerator TakeDamage_make_invulnerable()
     {
             // Private IEnumerator to only be used by TakeDamage or other future, similar scripts.
             // If we need to make the player invulnerable for some other reason, we should just write another
