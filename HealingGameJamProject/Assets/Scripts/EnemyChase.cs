@@ -50,6 +50,7 @@ public class EnemyChase : MonoBehaviour
             // Otherwise, move in the random direction as determined by ReadRandomMovements().
             else { direction = randomDirection;}
 
+            direction.z = 0f;
             rgbd2d.velocity = direction.normalized * speed;
             // And move all children.
             foreach (Transform trans in childTransforms){ trans.position = this.transform.position; }
