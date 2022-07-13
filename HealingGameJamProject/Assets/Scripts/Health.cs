@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
 
     // The amount of time after getting hurt that we're immune to damage.
     [SerializeField] float invulnerableTime = 0.5f;
-    bool invulnerable = false;
+    public bool invulnerable = false;
 
     void Update()
     {
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
             if (doInvulnerabilty){ StartCoroutine(TakeDamage_make_invulnerable()); }
         }
     }
-    private IEnumerator TakeDamage_make_invulnerable()
+    public IEnumerator TakeDamage_make_invulnerable()
     {
             // Private IEnumerator to only be used by TakeDamage or other future, similar scripts.
             // If we need to make the player invulnerable for some other reason, we should just write another
