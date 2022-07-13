@@ -20,6 +20,9 @@ public class Health : MonoBehaviour
         if (invulnerable){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
         }
+        if (!invulnerable){
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+        }
     }
 
     public void TakeDamage(int amount, bool doInvulnerabilty=true)
