@@ -6,6 +6,7 @@ public class EnemyChase : MonoBehaviour
 {
     Transform targetDestination;
     [SerializeField] float speed;
+    Vector3 direction;
 
     Rigidbody2D rgbd2d;
     Component[] childTransforms;
@@ -19,6 +20,8 @@ public class EnemyChase : MonoBehaviour
     public bool moveRandomly = true;
     bool randomNow;
     Vector3 randomDirection = new Vector3();
+    Collider2D zombTrigger;
+    Collider2D playerCollider;
 
     private void Awake()
     {
@@ -28,6 +31,8 @@ public class EnemyChase : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         zombAnimator = GetComponent<Animator>();
         //targetGameobject = targetDestination.gameObject;
+        zombTrigger = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Collider2D>();
+        playerCollider = GameObject.FindWithTag("Player").GetComponent<Collider2D>();
     }
 
     private void Start()
@@ -40,29 +45,33 @@ public class EnemyChase : MonoBehaviour
     {
         if (!stopped)
         {
-            // Move self...
-            Vector3 direction;
             // If we're not currently moving in a random direction, move towards the target.
-            if (!randomNow) { direction = (targetDestination.position - transform.position).normalized; }
+            if (!randomNow) { direction = (targetDestination.position - transform.position); }
             // Otherwise, move in the random direction as determined by ReadRandomMovements().
-            else { direction = randomDirection.normalized;}
+            else { direction = randomDirection;}
 
             rgbd2d.velocity = direction.normalized * speed;
             // And move all children.
             foreach (Transform trans in childTransforms){ trans.position = this.transform.position; }
 
-            // SPRITE FLIPPING
-            if (direction.x > 0){ sprite.flipX = false; }
-            if (direction.x < 0){ sprite.flipX = true; }
         }
         else
         {
             rgbd2d.velocity = Vector3.zero;
         }
 
+        // SPRITE FLIPPING
+        if (!playerCollider.IsTouching(zombTrigger)){
+            if (direction.x > 0){ sprite.flipX = false; }
+            if (direction.x < 0){ sprite.flipX = true; }
+            StartCoroutine(touchingPlayer_stopDelay(false));
+        }
+        else { StartCoroutine(touchingPlayer_stopDelay(true)); }
+
         zombAnimator.SetBool("isMoving", stopped);
         
     }
+    IEnumerator touchingPlayer_stopDelay(bool toStop){  yield return new WaitForSeconds(0.1f);  stopped = toStop;   }
 
     IEnumerator RandomStops()
     {

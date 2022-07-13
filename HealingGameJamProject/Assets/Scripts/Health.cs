@@ -17,8 +17,9 @@ public class Health : MonoBehaviour
     void Update()
     {
         suitcaseHealthbar.SetInteger("Health", (int)health);
+        
         if (invulnerable){
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.75f);
         }
         if (!invulnerable){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
@@ -38,9 +39,9 @@ public class Health : MonoBehaviour
             // Private IEnumerator to only be used by TakeDamage or other future, similar scripts.
             // If we need to make the player invulnerable for some other reason, we should just write another
             // script for that. Or make bool invulnerable public or something.
-            invulnerable = true;    print("invulnerable!");
+            invulnerable = true;    //print("invulnerable!");
             yield return new WaitForSeconds(invulnerableTime);
-            invulnerable = false;   print("vulnerable!");
+            invulnerable = false;   //print("vulnerable!");
     }
 
     public void ChangeHealth(int amount)

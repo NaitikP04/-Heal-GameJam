@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6959260272210400284}
   m_Layer: 0
-  m_Name: Demo Pseudozombie
+  m_Name: Green Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
