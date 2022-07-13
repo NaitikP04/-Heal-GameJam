@@ -17,6 +17,9 @@ public class Health : MonoBehaviour
     void Update()
     {
         suitcaseHealthbar.SetInteger("Health", (int)health);
+        if (invulnerable){
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,.5f);
+        }
     }
 
     public void TakeDamage(int amount, bool doInvulnerabilty=true)
