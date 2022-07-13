@@ -20,8 +20,12 @@ public class DamagePlayerOnCollision : MonoBehaviour
         selfBody = gameObject.GetComponent<Collider2D>();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    void Update()
     {
-        if (doDamage && other == playerBody){ health.TakeDamage(damageAmount); }
+        if (doDamage && selfBody.IsTouching(playerBody))
+        {
+            health.TakeDamage(damageAmount);
+        }
     }
+
 }

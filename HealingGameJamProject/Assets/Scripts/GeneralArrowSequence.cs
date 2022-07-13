@@ -14,7 +14,13 @@ public class GeneralArrowSequence : MonoBehaviour
     List<string> currentState;
     
     [Header("=== DISPLAY ===")]
+    // COLORS
+    SpriteRenderer zombieRenderer;
+    // Zombie color, determined in the Inspector
     [SerializeField] Color zombieColor;
+    // Heal color, used for correct arrows and in our zombie color lerp.
+    Color healColor = new Color(253f/255f, 151f/255f, 31f/255f, 1);
+
     // The prefab we use for arrow icons. The sprite gets changed!
     [SerializeField] GameObject arrowIcon;
     [SerializeField] Sprite UP_sprite;
@@ -30,11 +36,13 @@ public class GeneralArrowSequence : MonoBehaviour
     EnemyChase enemyChase;
     Animator animator;
     DamagePlayerOnCollision damagePlayerOnCollision;
-    bool dying = false;
+    bool fullyHealed = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        zombieRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         iconTransformOffset = new Vector3(0f, (float)iconbarPixelOffset/32f, 0f);
         enemyChase = gameObject.GetComponent<EnemyChase>();
         animator = gameObject.GetComponent<Animator>();
@@ -57,7 +65,7 @@ public class GeneralArrowSequence : MonoBehaviour
 
     void LogKeypress(string key)
     {
-        if (!dying && key == currentState[0])
+        if (!fullyHealed && key == currentState[0])
         {
             // If it's a match, remove the item from the current list.
             currentState.RemoveAt(0);
@@ -70,9 +78,11 @@ public class GeneralArrowSequence : MonoBehaviour
             // Recolor the icon to signal that we've completed it.
             // We obtain the index through comparing the lengths of currentState and sequence.
             UpdateArrowIcon(sequence.Count - currentState.Count - 1, true);
+            UpdateZombieColor((((float)sequence.Count - (float)currentState.Count)/(float)sequence.Count));
+            StartCoroutine(enemyChase.StopMovingBriefly(0.5f));
 
         }
-        else if (!dying)
+        else if (!fullyHealed)
         {
             // Otherwise, it was the wrong keypress. We restart from the top.
             currentState = new List<string>(sequence);
@@ -141,7 +151,7 @@ public class GeneralArrowSequence : MonoBehaviour
         // If we're not doing a custom color:
         if (!doCustomColor){
             // If the arrow is complete, make it orange.
-            if (done){ iconRenderer.color = new Color(253f/255f, 151f/255f, 31f/255f, 1); }
+            if (done){ iconRenderer.color = healColor; }
             // Otherwise, reset it to the zombieColor.
             else { iconRenderer.color = zombieColor; }
         }
@@ -149,12 +159,16 @@ public class GeneralArrowSequence : MonoBehaviour
         else { iconRenderer.color = new Color(custom.x, custom.y, custom.z, custom.w); }
     }
 
+    void UpdateZombieColor(float progress)
+    {
+        zombieRenderer.color = Color.Lerp(zombieColor, healColor, progress);
+    }
+
     IEnumerator DestroySelf(float delay)
     {
-        dying = true;
+        fullyHealed = true;
         // Stop moving, animating, and doing damage...
-        enemyChase.stopped = true;
-        enemyChase.dying = true;
+        enemyChase.fullyHealed = true;
         damagePlayerOnCollision.doDamage = false;
         // Wait 1.5 seconds...
         yield return new WaitForSeconds(delay);

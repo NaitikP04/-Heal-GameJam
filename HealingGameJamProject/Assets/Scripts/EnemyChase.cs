@@ -12,7 +12,7 @@ public class EnemyChase : MonoBehaviour
     Component[] childTransforms;
     SpriteRenderer sprite;
     Animator zombAnimator;
-    [HideInInspector] public bool dying = false;
+    [HideInInspector] public bool fullyHealed = false;
 
     [Header("=== PARAMETERS ===")]
     public bool stopRandomly = true;
@@ -43,36 +43,43 @@ public class EnemyChase : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!stopped)
-        {
-            // If we're not currently moving in a random direction, move towards the target.
-            if (!randomNow) { direction = (targetDestination.position - transform.position); }
-            // Otherwise, move in the random direction as determined by ReadRandomMovements().
-            else { direction = randomDirection;}
+        if (!fullyHealed){
+            if (!stopped)
+            {
+                // If we're not currently moving in a random direction, move towards the target.
+                if (!randomNow) { direction = (targetDestination.position - transform.position); }
+                // Otherwise, move in the random direction as determined by ReadRandomMovements().
+                else { direction = randomDirection;}
 
-            direction.z = 0f;
-            rgbd2d.velocity = direction.normalized * speed;
-            // And move all children.
-            foreach (Transform trans in childTransforms){ trans.position = this.transform.position; }
+                direction.z = 0f;
+                rgbd2d.velocity = direction.normalized * speed;
+                // And move all children.
+                foreach (Transform trans in childTransforms){ trans.position = this.transform.position; }
 
-        }
-        else
-        {
-            rgbd2d.velocity = Vector3.zero;
-        }
+            }
+            else
+            {
+                rgbd2d.velocity = Vector3.zero;
+            }
 
-        // SPRITE FLIPPING
-        if (!playerCollider.IsTouching(zombTrigger)){
-            if (direction.x > 0){ sprite.flipX = false; }
-            if (direction.x < 0){ sprite.flipX = true; }
-            StartCoroutine(touchingPlayer_stopDelay(false));
+            // SPRITE FLIPPING
+            if (!playerCollider.IsTouching(zombTrigger)){
+                if (direction.x > 0){ sprite.flipX = false; }
+                if (direction.x < 0){ sprite.flipX = true; }
+            }
         }
-        else { StartCoroutine(touchingPlayer_stopDelay(true)); }
+        else { stopped = true; }
 
         zombAnimator.SetBool("isMoving", stopped);
         
     }
-    IEnumerator touchingPlayer_stopDelay(bool toStop){  yield return new WaitForSeconds(0.1f);  stopped = toStop;   }
+
+    public IEnumerator StopMovingBriefly(float delay)
+    {
+        stopped = true;
+        yield return new WaitForSeconds(delay);
+        if (!playerCollider.IsTouching(zombTrigger)){ stopped = false; }
+    }
 
     IEnumerator RandomStops()
     {
@@ -81,7 +88,7 @@ public class EnemyChase : MonoBehaviour
             if (Random.Range(1,7) == 4){
                 stopped = true;
                 yield return new WaitForSeconds(1);
-                if (!dying){ stopped = false; }
+                if (!fullyHealed){ stopped = false; }
             }
             else { yield return new WaitForSeconds(3); }
         }  
