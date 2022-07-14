@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject bomb;
 
     public int ammo = 5;
     [SerializeField] Animator suitcaseAmmobar;
 
     BasicPlayerMovement movement;
     Quaternion shootDirection;
+
+    public bool gunEquipped = true;
+    public bool bombEquipped = false;
 
     private void Start()
     {
@@ -28,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
             case "right":   shootDirection = Quaternion.Euler(0,0,0);   break;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gunEquipped)
         {
             if (ammo > 0)
             {
@@ -36,6 +40,22 @@ public class PlayerAttack : MonoBehaviour
                 ammo--;
             }
             else { OutOfAmmo(); }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && bombEquipped)
+        {
+            gunEquipped = false;
+            Instantiate(bomb, gameObject.transform.position, shootDirection, this.transform);
+            //use Physics 2d overlap circle to detect enemies in range, heal all enemies in range
+            //Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 5f);
+            //foreach (Collider2D enemy in enemies)
+            //{
+                //if (enemy.gameObject.tag == "Enemy")
+                //{
+                    //change status of enemy to being fully healed                   
+                //}
+            //}
+            //after using the bomb, set gunEquipped to true again and set bombEquipped to false
         }
 
         suitcaseAmmobar.SetInteger("Ammo", (int)ammo);

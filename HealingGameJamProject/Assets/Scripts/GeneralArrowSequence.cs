@@ -84,7 +84,7 @@ public class GeneralArrowSequence : MonoBehaviour
             // We obtain the index through comparing the lengths of currentState and sequence.
             UpdateArrowIcon(sequence.Count - currentState.Count - 1, true);
             // Stop the enemy from moving for 0.5 seconds.
-            StartCoroutine(enemyChase.StopMovingBriefly(0.5f));
+            StartCoroutine(enemyChase.StopMovingBriefly(0.3f));
             // Get a reference to the percentage of the way we are to being fully healed.
             float progress = ((float)sequence.Count - (float)currentState.Count)/(float)sequence.Count;
             // Update the zombie color with the

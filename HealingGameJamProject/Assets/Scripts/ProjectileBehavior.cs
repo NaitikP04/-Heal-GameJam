@@ -18,7 +18,7 @@ public class ProjectileBehavior : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other)
     {
             if (other.tag == "Enemy Trigger"){ other.GetComponent<TriggerDestroyGrandparent>().DestroyGrandparent(); }
-            if (other.tag != "Player"){ Destroy(this.gameObject); }
+            if (other.tag != "Player" && other.tag != "CameraBounds"){ Destroy(this.gameObject); }
     }
 
     IEnumerator BulletDecayRoutine()
