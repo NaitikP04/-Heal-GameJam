@@ -57,10 +57,7 @@ public class EnemyChase : MonoBehaviour
                 foreach (Transform trans in childTransforms){ trans.position = this.transform.position; }
 
             }
-            else
-            {
-                rgbd2d.velocity = Vector3.zero;
-            }
+            else { rgbd2d.velocity = Vector3.zero; }
 
             // SPRITE FLIPPING
             if (!playerCollider.IsTouching(zombTrigger)){
@@ -68,7 +65,11 @@ public class EnemyChase : MonoBehaviour
                 if (direction.x < 0){ sprite.flipX = true; }
             }
         }
-        else { stopped = true; }
+        else
+        { 
+            stopped = true;
+            rgbd2d.velocity = Vector3.zero;
+        }
 
         zombAnimator.SetBool("isMoving", stopped);
         
@@ -100,7 +101,7 @@ public class EnemyChase : MonoBehaviour
         {
             if (Random.Range(1,5) == 1){
                 randomNow = true;
-                randomDirection = new Vector3(Random.Range(0f,1f),Random.Range(0f,1f),0f);
+                randomDirection = new Vector3(Random.Range(-1f,1f),Random.Range(-1f,1f),0f);
                 yield return new WaitForSeconds(1.5f);
                 randomNow = false;
             }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeneralArrowSequence : MonoBehaviour
 {
     [Header("==== DATA ====")]
+    
     [SerializeField] int difficulty = 2;
     // difficulty determines the number of arrow keys needed to heal the zombie.
     // difficulty = 1: 1-2 arrow keys needed to heal
@@ -12,14 +13,14 @@ public class GeneralArrowSequence : MonoBehaviour
     //              3: 5-6 arrow keys needed to heal
     List<string> sequence = new List<string>();
     List<string> currentState;
-    
+
     [Header("=== DISPLAY ===")]
-    // COLORS
-    SpriteRenderer zombieRenderer;
-    // Zombie color, determined in the Inspector
     [SerializeField] Color zombieColor;
     // Heal color, used for correct arrows and in our zombie color lerp.
+    SpriteRenderer zombieRenderer;
+    // Zombie color, determined in the Inspector
     Color healColor = new Color(253f/255f, 151f/255f, 31f/255f, 1);
+    [SerializeField] GameObject healParticle;
 
     // The prefab we use for arrow icons. The sprite gets changed!
     [SerializeField] GameObject arrowIcon;
@@ -78,9 +79,14 @@ public class GeneralArrowSequence : MonoBehaviour
             // Recolor the icon to signal that we've completed it.
             // We obtain the index through comparing the lengths of currentState and sequence.
             UpdateArrowIcon(sequence.Count - currentState.Count - 1, true);
-            UpdateZombieColor((((float)sequence.Count - (float)currentState.Count)/(float)sequence.Count));
+            // Stop the enemy from moving for 0.5 seconds.
             StartCoroutine(enemyChase.StopMovingBriefly(0.5f));
-
+            // Get a reference to the percentage of the way we are to being fully healed.
+            float progress = ((float)sequence.Count - (float)currentState.Count)/(float)sequence.Count;
+            // Update the zombie color with the
+            UpdateZombieColor(progress);
+            // And spawn a number of particles based on it too.
+            SpawnParticles(progress);
         }
         else if (!fullyHealed)
         {
@@ -88,6 +94,8 @@ public class GeneralArrowSequence : MonoBehaviour
             currentState = new List<string>(sequence);
             // Recolor all icons back to our zombie color.
             for (int i = 0; i < sequence.Count; i++){ UpdateArrowIcon(i, false); }
+            // And restore our zombie back to the zombie color.
+            UpdateZombieColor(0f);
 
                 //print($"Healing failure! The sequence has reverted to: {string.Join(", ", currentState)}!");
         }
@@ -163,6 +171,25 @@ public class GeneralArrowSequence : MonoBehaviour
     {
         zombieRenderer.color = Color.Lerp(zombieColor, healColor, progress);
     }
+
+    void SpawnParticles(float progress)
+    {
+        int particlesToSpawn = 0;
+        switch (progress)
+        {
+            case > 0.00f    and <= 0.25f: particlesToSpawn = 1;    break;
+            case > 0.25f    and <= 0.50f: particlesToSpawn = 2;    break;
+            case > 0.50f    and <= 0.75f: particlesToSpawn = 3;    break;
+            case > 0.75f    and <= 1.00f: particlesToSpawn = 4;    break;
+        }
+
+        for (int i = 0; i < particlesToSpawn; i++)
+        {
+            Instantiate(healParticle, this.transform.position, Quaternion.identity);
+        }
+    }
+
+    // ====================================================================================
 
     IEnumerator DestroySelf(float delay)
     {

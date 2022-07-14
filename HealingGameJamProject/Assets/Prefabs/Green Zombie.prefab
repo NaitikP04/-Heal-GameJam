@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 2
   zombieColor: {r: 0.6509804, g: 0.8862745, b: 0.18039216, a: 1}
+  healParticle: {fileID: 3886277281110871752, guid: a89b8b8bdc3f28e4b9569f607437fe58, type: 3}
   arrowIcon: {fileID: 3992506167767902819, guid: 6e95c1cbf89f2ed45b043f1a35d4daef, type: 3}
   UP_sprite: {fileID: 37620032, guid: 41bb98ff60136cb48b2578eb8c79fee0, type: 3}
   DOWN_sprite: {fileID: 1706556047, guid: 41bb98ff60136cb48b2578eb8c79fee0, type: 3}
