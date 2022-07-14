@@ -22,12 +22,14 @@ public class SpeedInvincibility : PowerupEffect
             target.GetComponent<BasicPlayerMovement>().maxVelocity *= speedMultiplier;
             target.GetComponent<BasicPlayerMovement>().accelerationTime = 0.05f;
             target.GetComponent<Health>().invulnerable = true;
+            target.GetComponent<Health>().SIBuffActive = true;
             
             yield return new WaitForSeconds(powerUpTime);
             
             target.GetComponent<BasicPlayerMovement>().maxVelocity /= speedMultiplier;
             target.GetComponent<BasicPlayerMovement>().accelerationTime = 0.3f;
             target.GetComponent<Health>().invulnerable = false;
+            target.GetComponent<Health>().SIBuffActive = false;
         }
         
     }

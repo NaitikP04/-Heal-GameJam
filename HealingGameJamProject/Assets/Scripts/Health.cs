@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     // The amount of time after getting hurt that we're immune to damage.
     [SerializeField] float invulnerableTime = 0.5f;
     public bool invulnerable = false;
+    public bool SIBuffActive = false;
 
     void Update()
     {
@@ -41,7 +42,7 @@ public class Health : MonoBehaviour
             // script for that. Or make bool invulnerable public or something.
             invulnerable = true;    //print("invulnerable!");
             yield return new WaitForSeconds(invulnerableTime);
-            invulnerable = false;   //print("vulnerable!");
+            if(!SIBuffActive){ invulnerable = false; }  //print("vulnerable!");
     }
 
     public void ChangeHealth(int amount)
