@@ -21,6 +21,7 @@ public class GeneralArrowSequence : MonoBehaviour
     // Zombie color, determined in the Inspector
     Color healColor = new Color(253f/255f, 151f/255f, 31f/255f, 1);
     [SerializeField] GameObject healParticle;
+    Color humanColor = new Color(248f/255f, 248f/255f, 242f/255f, 1);
 
     // The prefab we use for arrow icons. The sprite gets changed!
     [SerializeField] GameObject arrowIcon;
@@ -35,7 +36,7 @@ public class GeneralArrowSequence : MonoBehaviour
 
     // For destruction:
     EnemyChase enemyChase;
-    Animator animator;
+    Animator zombAnimator;
     DamagePlayerOnCollision damagePlayerOnCollision;
     bool fullyHealed = false;
 
@@ -46,7 +47,7 @@ public class GeneralArrowSequence : MonoBehaviour
 
         iconTransformOffset = new Vector3(0f, (float)iconbarPixelOffset/32f, 0f);
         enemyChase = gameObject.GetComponent<EnemyChase>();
-        animator = gameObject.GetComponent<Animator>();
+        zombAnimator = gameObject.GetComponent<Animator>();
         damagePlayerOnCollision = gameObject.GetComponentInChildren<DamagePlayerOnCollision>();
 
         SupplyArrowSequence();
@@ -62,6 +63,7 @@ public class GeneralArrowSequence : MonoBehaviour
         if (Input.GetKeyDown("down"))   { LogKeypress("down");  }
         if (Input.GetKeyDown("left"))   { LogKeypress("left");  }
         if (Input.GetKeyDown("right"))  { LogKeypress("right"); }
+
     }
 
     void LogKeypress(string key)
@@ -72,7 +74,7 @@ public class GeneralArrowSequence : MonoBehaviour
             currentState.RemoveAt(0);
             
             // If this made the list empty, destroy ourselves.
-            if (currentState.Count <= 0){ StartCoroutine(DestroySelf(1.5f)); }
+            if (currentState.Count <= 0){ StartCoroutine(FullyHealedSelf(1f)); }
 
                 //print($"Healing progress! The remaining sequence is: {string.Join(", ", currentState)}!");
 
@@ -100,6 +102,26 @@ public class GeneralArrowSequence : MonoBehaviour
                 //print($"Healing failure! The sequence has reverted to: {string.Join(", ", currentState)}!");
         }
     }
+
+    IEnumerator FullyHealedSelf(float delay)
+    {
+        zombAnimator.SetBool("fullyHealed", true);
+        fullyHealed = true;
+        // Stop moving, animating, and doing damage...
+        enemyChase.fullyHealed = true;
+        damagePlayerOnCollision.doDamage = false;
+        // Shrink all the arrow icons...
+        for (int i = 0; i < sequence.Count; i++){
+            StartCoroutine(ShrinkObjectToNone(arrowIcons[i], i/10f)); }
+        // Wait 1.5 seconds...
+        yield return new WaitForSeconds(delay);
+        // And change back to a human color.
+        UpdateZombieColor(1f, true);
+    }
+
+    // =========================================================
+    //                        GRAPHICS
+    // =========================================================
 
     void InitializeArrowIcons()
     {
@@ -167,9 +189,35 @@ public class GeneralArrowSequence : MonoBehaviour
         else { iconRenderer.color = new Color(custom.x, custom.y, custom.z, custom.w); }
     }
 
-    void UpdateZombieColor(float progress)
+    void UpdateZombieColor(float progress, bool toHuman=false)
     {
-        zombieRenderer.color = Color.Lerp(zombieColor, healColor, progress);
+        // If we're not transitioning to human color:
+                                    // Start lerping between the zombie color,
+                                                                    // the heal color
+                                                                        // ending at the float representing
+                                                                        // our progress,
+                                                                            // and do so over 0.25 seconds.
+        if (!toHuman){ StartCoroutine(coroutine_UpdateZombieColor(zombieColor, healColor, progress, 0.25f)); }
+        // If we ARE transitioning to human color:
+                                    // Start lerping between the current color,
+                                                                    // the human color,
+                                                                        // ending at 1 (ie 100% lerped),
+                                                                            // and do so over 1 second.
+        if (toHuman){ StartCoroutine(coroutine_UpdateZombieColor(zombieRenderer.color, humanColor, 1f, 1f)); }
+    }
+    IEnumerator coroutine_UpdateZombieColor(Color startColor, Color endColor, float targetProgress, float maxTime )
+    {
+        float elapsed = 0;
+        Color currentColor = zombieRenderer.color;                                      // initial color for this lerp
+        Color currentTargetColor = Color.Lerp(startColor, endColor, targetProgress);    // final color for this lerp
+
+        while (elapsed < maxTime){
+
+                zombieRenderer.color = Color.Lerp(currentColor, currentTargetColor, (elapsed/maxTime));
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
     }
 
     void SpawnParticles(float progress)
@@ -185,22 +233,21 @@ public class GeneralArrowSequence : MonoBehaviour
 
         for (int i = 0; i < particlesToSpawn; i++)
         {
-            Instantiate(healParticle, this.transform.position, Quaternion.identity);
+            Instantiate(healParticle, this.transform.position, Quaternion.identity, this.transform.parent);
         }
     }
 
-    // ====================================================================================
-
-    IEnumerator DestroySelf(float delay)
+    IEnumerator ShrinkObjectToNone(GameObject thing, float delay)
     {
-        fullyHealed = true;
-        // Stop moving, animating, and doing damage...
-        enemyChase.fullyHealed = true;
-        damagePlayerOnCollision.doDamage = false;
-        // Wait 1.5 seconds...
         yield return new WaitForSeconds(delay);
-        // And fucking die.
-        Destroy(gameObject.transform.parent.gameObject);
+
+        float elapsed = 0;
+        while (elapsed < 0.5f){
+            thing.transform.localScale = thing.transform.localScale * 0.99f;
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(thing.gameObject);
     }
 
     void SupplyArrowSequence()
