@@ -39,6 +39,7 @@ public class GeneralArrowSequence : MonoBehaviour
     Animator zombAnimator;
     DamagePlayerOnCollision damagePlayerOnCollision;
     bool fullyHealed = false;
+    HealedZombieRun healedZombieRun;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class GeneralArrowSequence : MonoBehaviour
         enemyChase = gameObject.GetComponent<EnemyChase>();
         zombAnimator = gameObject.GetComponent<Animator>();
         damagePlayerOnCollision = gameObject.GetComponentInChildren<DamagePlayerOnCollision>();
+        healedZombieRun = gameObject.GetComponent<HealedZombieRun>();
 
         SupplyArrowSequence();
         InitializeArrowIcons();
@@ -74,7 +76,7 @@ public class GeneralArrowSequence : MonoBehaviour
             currentState.RemoveAt(0);
             
             // If this made the list empty, destroy ourselves.
-            if (currentState.Count <= 0){ StartCoroutine(FullyHealedSelf(1f)); }
+            if (currentState.Count <= 0){ StartCoroutine(FullyHealedSelf()); }
 
                 //print($"Healing progress! The remaining sequence is: {string.Join(", ", currentState)}!");
 
@@ -103,7 +105,7 @@ public class GeneralArrowSequence : MonoBehaviour
         }
     }
 
-    IEnumerator FullyHealedSelf(float delay)
+    IEnumerator FullyHealedSelf()
     {
         zombAnimator.SetBool("fullyHealed", true);
         fullyHealed = true;
@@ -113,10 +115,18 @@ public class GeneralArrowSequence : MonoBehaviour
         // Shrink all the arrow icons...
         for (int i = 0; i < sequence.Count; i++){
             StartCoroutine(ShrinkObjectToNone(arrowIcons[i], i/10f)); }
-        // Wait 1.5 seconds...
-        yield return new WaitForSeconds(delay);
+        // Wait a second...
+        yield return new WaitForSeconds(1f);
         // And change back to a human color.
         UpdateZombieColor(1f, true);
+        
+        // Wait another second,
+        yield return new WaitForSeconds(0.75f);
+        // And start getting the fuck out of here!
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        zombAnimator.SetBool("healedRun", true);
+        healedZombieRun.enabled = true;
+        
     }
 
     // =========================================================

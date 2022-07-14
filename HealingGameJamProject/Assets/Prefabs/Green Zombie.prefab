@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6959260273347141079}
   - component: {fileID: 6959260273347141078}
   - component: {fileID: 6959260273347141073}
+  - component: {fileID: 3186467512253297651}
   m_Layer: 8
   m_Name: Sprite + Collider
   m_TagString: Untagged
@@ -227,6 +228,19 @@ MonoBehaviour:
   LEFT_sprite: {fileID: 705570701, guid: 41bb98ff60136cb48b2578eb8c79fee0, type: 3}
   RIGHT_sprite: {fileID: 1757996685, guid: 41bb98ff60136cb48b2578eb8c79fee0, type: 3}
   iconbarPixelOffset: 17
+--- !u!114 &3186467512253297651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959260273347141082}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85abaa931aa37824bb59cd16649f4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &6959260273594552639
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +256,7 @@ GameObject:
   - component: {fileID: 6959260273594552633}
   - component: {fileID: 2182389814793355077}
   - component: {fileID: 5281611836233469350}
+  - component: {fileID: 1721440613}
   m_Layer: 9
   m_Name: Trigger
   m_TagString: Enemy Trigger
@@ -399,5 +414,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61d6f1ec13d8d1d4c93d42a382d70c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1721440613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959260273594552639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4becdba61fa99459c7d5db644cb4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

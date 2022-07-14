@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy Trigger
   - Enemy
+  - HealedRun Attractor
+  - HealedRun Repulsor
+  - CameraBounds
   layers:
   - Default
   - TransparentFX
