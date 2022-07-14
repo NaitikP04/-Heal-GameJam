@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1400ec1eb5546a479447446c5436c81, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
+  particleColor: {r: 0.99215686, g: 0.5921569, b: 0.12156863, a: 1}

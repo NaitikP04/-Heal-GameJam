@@ -9,6 +9,7 @@ TagManager:
   - HealedRun Attractor
   - HealedRun Repulsor
   - CameraBounds
+  - Player Collider
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Environment
   - Enemy Collider
   - Enemy Trigger
-  - 
+  - Player Collider
   - 
   - 
   - 

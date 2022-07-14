@@ -4,5 +4,6 @@ using UnityEngine;
 
 public abstract class PowerupEffect : ScriptableObject
 {
+    public Color particleColor;
     public abstract void Apply(GameObject target);
 }

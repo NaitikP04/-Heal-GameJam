@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6f88be11623ab40ba2cce72a66ec8f, type: 3}
   m_Name: SIBuff
   m_EditorClassIdentifier: 
+  particleColor: {r: 0.9019608, g: 0.85882354, b: 0.45490196, a: 1}
   speedMultiplier: 2.5
   powerUpTime: 6

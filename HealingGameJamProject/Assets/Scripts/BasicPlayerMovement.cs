@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
-    Rigidbody2D body;
+    Rigidbody2D colliderBody;
+    GameObject playerColliderObject;
     SpriteRenderer sprite;
     Animator docAnimator;
 
@@ -24,7 +25,8 @@ public class BasicPlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        playerColliderObject = GameObject.FindWithTag("Player Collider");
+        colliderBody = playerColliderObject.GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         docAnimator = GetComponent<Animator>();
     }
@@ -66,7 +68,12 @@ public class BasicPlayerMovement : MonoBehaviour
             StartCoroutine(AccelerateDecelerate(false, verticalAmt, decelerationTime));
             }
 
+        // Update our animator,
         docAnimator.SetBool("isMoving", !(horizontalAmt == 0 && verticalAmt == 0));
+        // And track our position to the collider
+        gameObject.transform.position = new Vector3 (   playerColliderObject.transform.position.x + 0.03125f,
+                                                        playerColliderObject.transform.position.y + 0.40625f,
+                                                        0f );
 
         // The following code is used in PlayerAttack.
         if (Input.GetKeyDown(KeyCode.W) && mostRecentDirection != "up"){ mostRecentDirection = "up"; }
@@ -125,7 +132,7 @@ public class BasicPlayerMovement : MonoBehaviour
     // FixedUpdate is NOT called once per frame
     void FixedUpdate()
     {
-        body.velocity = new Vector2(X_velocityModifier*maxVelocity,
+        colliderBody.velocity = new Vector2(X_velocityModifier*maxVelocity,
                                     Y_velocityModifier*maxVelocity);
     }
 

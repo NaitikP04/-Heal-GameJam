@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealParticleBehavior : MonoBehaviour
+public class ParticleBehavior : MonoBehaviour
 {
     Rigidbody2D rgbd2d;
     Vector3 direction;
+    public Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,8 @@ public class HealParticleBehavior : MonoBehaviour
         rgbd2d = gameObject.GetComponent<Rigidbody2D>();
         StartCoroutine(BrownianMotion());
         StartCoroutine(Lifetime());
+
+        gameObject.GetComponent<SpriteRenderer>().color = color;
     }
 
     void Update()

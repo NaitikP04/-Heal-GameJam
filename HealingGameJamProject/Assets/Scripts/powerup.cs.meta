@@ -3,7 +3,9 @@ guid: 8ce8b1d8bf01ae949810682bdfdcbc18
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - powerupEffect: {instanceID: 0}
+  - particle: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
