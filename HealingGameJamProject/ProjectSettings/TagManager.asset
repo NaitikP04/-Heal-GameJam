@@ -12,6 +12,7 @@ TagManager:
   - Player Collider
   - Health UI Animator
   - Ammo UI Animator
+  - Pause Button
   layers:
   - Default
   - TransparentFX

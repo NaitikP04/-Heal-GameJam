@@ -21,6 +21,7 @@ public class BasicPlayerMovement : MonoBehaviour
     bool Y_moving = false;
 
     [HideInInspector] public string mostRecentDirection;
+    [SerializeField] PauseMenu pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,14 @@ public class BasicPlayerMovement : MonoBehaviour
         colliderBody = playerColliderObject.GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         docAnimator = GetComponent<Animator>();
+
+        pauseMenu = GameObject.FindWithTag("Pause Button").GetComponent<PauseMenu>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pauseMenu.paused){ return; }
         horizontalAmt = Input.GetAxisRaw("Horizontal");
         verticalAmt = Input.GetAxisRaw("Vertical");
 

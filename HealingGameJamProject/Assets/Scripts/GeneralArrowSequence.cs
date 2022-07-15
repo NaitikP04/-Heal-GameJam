@@ -13,6 +13,7 @@ public class GeneralArrowSequence : MonoBehaviour
     //              3: 5-6 arrow keys needed to heal
     List<string> sequence = new List<string>();
     List<string> currentState;
+    PauseMenu pauseMenu;
 
     [Header("=== DISPLAY ===")]
     [SerializeField] Color zombieColor;
@@ -46,6 +47,7 @@ public class GeneralArrowSequence : MonoBehaviour
     void Start()
     {
         zombieRenderer = gameObject.GetComponent<SpriteRenderer>();
+        pauseMenu = GameObject.FindWithTag("Pause Button").GetComponent<PauseMenu>();
 
         iconTransformOffset = new Vector3(0f, (float)iconbarPixelOffset/32f, 0f);
         enemyChase = gameObject.GetComponent<EnemyChase>();
@@ -73,7 +75,7 @@ public class GeneralArrowSequence : MonoBehaviour
 
     void LogKeypress(string key)
     {
-        if (!fullyHealed && key == currentState[0])
+        if (!pauseMenu.paused && !fullyHealed && key == currentState[0])
         {
             // If it's a match, remove the item from the current list.
             currentState.RemoveAt(0);
