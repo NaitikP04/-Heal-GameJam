@@ -3259,7 +3259,19 @@ MonoBehaviour:
   zomb: {fileID: 6959260272210400259, guid: 33e8355e2ae99c0499a0541508ca9a60, type: 3}
   innerRadius: 15
   outerRadius: 25
-  delay: 0.5
+  waves:
+  - name: Wave 1
+    count: 5
+    rate: 1
+  - name: Wave 2
+    count: 10
+    rate: 2
+  - name: Wave 3
+    count: 12
+    rate: 2
+  timeBetweenWaves: 5
+  waveCountdown: 0
+  state: 2
 --- !u!4 &1315627906
 Transform:
   m_ObjectHideFlags: 0
@@ -3370,7 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.52292633, g: 0.6981132, b: 0.6879779, a: 0.392}
+  m_Color: {r: 0.8154111, g: 0, b: 1, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
