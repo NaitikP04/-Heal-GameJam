@@ -1,23 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
 
-
-[CreateAssetMenu(menuName = "Powerups/SpeedInvincibility")]
-public class SpeedInvincibility : PowerupEffect
+public class SIBuffManager : MonoBehaviour
 {
-    public float speedMultiplier;
-    public float powerUpTime;
-
-    public override void Apply(GameObject target)
-    {           
-        SIBuffManager siBuffManager = GameObject.FindObjectOfType<SIBuffManager>();
-        
-        siBuffManager.StartCoroutine(siBuffManager.powerUpForDuration(speedMultiplier, powerUpTime, target));
-
-        /*IEnumerator powerUpForDuration()
+    public IEnumerator powerUpForDuration(float speedMultiplier, float powerUpTime, GameObject target)
         {
             target.GetComponent<BasicPlayerMovement>().maxVelocity *= speedMultiplier;
             target.GetComponent<BasicPlayerMovement>().accelerationTime = 0.05f;
@@ -25,7 +12,7 @@ public class SpeedInvincibility : PowerupEffect
             target.GetComponent<Health>().SIBuffActive = true;
             
             yield return new WaitForSeconds(powerUpTime);
-
+            
             //float elapsed = 0f;
             //while (elapsed < powerUpTime)
             //{
@@ -38,8 +25,5 @@ public class SpeedInvincibility : PowerupEffect
             target.GetComponent<BasicPlayerMovement>().accelerationTime = 0.3f;
             target.GetComponent<Health>().invulnerable = false;
             target.GetComponent<Health>().SIBuffActive = false;
-        }*/
-        
-    }
+        }
 }
-
