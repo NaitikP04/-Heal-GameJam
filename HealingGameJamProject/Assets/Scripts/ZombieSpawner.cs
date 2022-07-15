@@ -2,23 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DEBUGZombSpawner : MonoBehaviour
+public class ZombieSpawner : MonoBehaviour
 {
 
     // Donut-based spawn range from: https://answers.unity.com/questions/1580130/i-need-to-instantiate-an-object-inside-a-donut-ins.html
     // SHOUTOUT TO BRACKEYS!!!!
 
-    [SerializeField] GameObject zomb;
+    [SerializeField] GameObject greenZombie;
+    [SerializeField] GameObject purpleZombie;
+    [SerializeField] GameObject blueZombie;
     public float innerRadius = 10f;
     public float outerRadius = 20f;
 
     public enum SpawnState {SPAWNING, WAITING, COUNTING};
+    public enum ZombieColor {Green, Purple, Blue};
+
+    [System.Serializable]
+    public class ZombieGroup
+    {
+        public int zCount;
+        public ZombieColor zType;
+    }
     
     [System.Serializable]
     public class Wave
     {
         public string name;
-        public int count;
+        public List<ZombieGroup> zombieList;
         public float rate;
     }
 
@@ -42,14 +52,8 @@ public class DEBUGZombSpawner : MonoBehaviour
     {
         if (state == SpawnState.WAITING)
         {
-            if (!EnemyIsAlive())
-            {
-                WaveCompleted();
-            }
-            else
-            {
-                return;
-            }
+            if (!EnemyIsAlive()) { WaveCompleted(); }
+            else { return; }
         }
         
         if(waveCountdown <= 0)
@@ -77,10 +81,7 @@ public class DEBUGZombSpawner : MonoBehaviour
             nextWave = 0;
             Debug.Log("Completed all waves! Looping..."); //change to a game completed screen
         }
-        else
-        {
-            nextWave++;
-        }
+        else { nextWave++; }
     }
     
     bool EnemyIsAlive()
@@ -101,20 +102,29 @@ public class DEBUGZombSpawner : MonoBehaviour
     IEnumerator SpawnRoutine(Wave _wave)
     {
         state = SpawnState.SPAWNING;
-
         //spawn
-        for(int i = 0; i < _wave.count; i++)
-        {
-            SpawnZomb();
-            yield return new WaitForSeconds(1f / _wave.rate);
-        }
 
+        for(int i = 0; i < _wave.zombieList.Count; i++)
+        {
+            for(int j = 0; j < _wave.zombieList[i].zCount; j++)
+            {   
+                switch (_wave.zombieList[i].zType)
+                {
+                    case ZombieColor.Green: SpawnZomb(greenZombie); break;
+                    case ZombieColor.Purple: SpawnZomb(purpleZombie); break;
+                    case ZombieColor.Blue: SpawnZomb(blueZombie); break;
+                }
+                print($"{_wave.name}: spawned a {_wave.zombieList[i].zType} zombie. {j+1} of {_wave.zombieList[i].zCount}.");
+
+                yield return new WaitForSeconds(1f / _wave.rate);
+            }
+        }
         state = SpawnState.WAITING;
     }
 
-    void SpawnZomb()
+    void SpawnZomb(GameObject zombie)
     {
-        Instantiate(zomb, GetSpawnPoint(), Quaternion.identity, this.transform);
+        Instantiate(zombie, GetSpawnPoint(), Quaternion.identity, this.transform);
     }
 
     Vector3 GetSpawnPoint()

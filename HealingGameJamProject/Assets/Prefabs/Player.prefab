@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 1243171130695698161}
   - component: {fileID: 2200586793845798749}
   - component: {fileID: 1908941079793773401}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Player Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8038075788629928070}
   - component: {fileID: 7977776276317953863}
   m_Layer: 6
-  m_Name: Sprite + Trigger
+  m_Name: Player Sprite + Trigger
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2952579133312271365, guid: a7217beb5d866ef4ca963d3e2d9cb934, type: 3}
-  bomb: {fileID: 0}
+  bomb: {fileID: 7244148345335268606, guid: 9ec33d77d20ab6946b0aac2765f1b7b0, type: 3}
   ammo: 5
   suitcaseAmmobar: {fileID: 0}
   gunEquipped: 1

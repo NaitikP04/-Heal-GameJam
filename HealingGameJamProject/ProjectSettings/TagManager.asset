@@ -10,6 +10,8 @@ TagManager:
   - HealedRun Repulsor
   - CameraBounds
   - Player Collider
+  - Health UI Animator
+  - Ammo UI Animator
   layers:
   - Default
   - TransparentFX

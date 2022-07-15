@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 {
     public float health;
 
-    [SerializeField] Animator suitcaseHealthbar;
+    Animator suitcaseHealthbar;
 
     // The amount of time after getting hurt that we're immune to damage.
     [SerializeField] float invulnerableTime = 0.5f;
@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
+        suitcaseHealthbar = GameObject.FindWithTag("Health UI Animator").GetComponent<Animator>();
         suitcaseHealthbar.SetInteger("Health", (int)health);
         
         if (invulnerable){

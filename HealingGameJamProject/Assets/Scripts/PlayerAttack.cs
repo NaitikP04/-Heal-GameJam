@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject bomb;
 
     public int ammo = 5;
-    [SerializeField] Animator suitcaseAmmobar;
+    Animator suitcaseAmmobar;
 
     BasicPlayerMovement movement;
     Quaternion shootDirection;
@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         movement = gameObject.GetComponent<BasicPlayerMovement>();
+        suitcaseAmmobar = GameObject.FindWithTag("Ammo UI Animator").GetComponent<Animator>();
     }
 
     // Update is called once per frame
