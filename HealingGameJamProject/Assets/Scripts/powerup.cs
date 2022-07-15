@@ -12,7 +12,7 @@ public class powerup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player"){ 
             for (int i = 0; i < 8; i++){
-                GameObject p = Instantiate(particle, this.transform.position, Quaternion.identity, collision.transform);
+                GameObject p = Instantiate(particle, this.transform.position, Quaternion.identity, gameObject.transform.parent.transform);
                 p.GetComponent<ParticleBehavior>().color = powerupEffect.particleColor;
             }
 
