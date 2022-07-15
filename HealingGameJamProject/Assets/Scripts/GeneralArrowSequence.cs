@@ -108,7 +108,7 @@ public class GeneralArrowSequence : MonoBehaviour
         }
     }
 
-    IEnumerator FullyHealedSelf()
+    public IEnumerator FullyHealedSelf()
     {
         zombAnimator.SetBool("fullyHealed", true);
         fullyHealed = true;
