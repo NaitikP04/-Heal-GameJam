@@ -5,14 +5,18 @@ using UnityEngine;
 public class DestroyOnExitScreen : MonoBehaviour
 {
     TriggerDestroyGrandparent byeByeGramps;
+    Collider2D cameraBoundsCollider;
+    Collider2D ourCollider;
 
     void Start()
     {
         byeByeGramps = gameObject.GetComponentInChildren<TriggerDestroyGrandparent>();
+        cameraBoundsCollider = GameObject.FindWithTag("CameraBounds").GetComponent<Collider2D>();
+        ourCollider = gameObject.GetComponent<Collider2D>();
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void Update()
     {
-        if (other.tag == "CameraBounds"){ byeByeGramps.DestroyGrandparent(); }
+        if (!ourCollider.IsTouching(cameraBoundsCollider)){ byeByeGramps.DestroyGrandparent(); }
     }
 }

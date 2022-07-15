@@ -40,6 +40,7 @@ public class GeneralArrowSequence : MonoBehaviour
     DamagePlayerOnCollision damagePlayerOnCollision;
     bool fullyHealed = false;
     HealedZombieRun healedZombieRun;
+    DestroyOnExitScreen destroyOnExitScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,8 @@ public class GeneralArrowSequence : MonoBehaviour
         zombAnimator = gameObject.GetComponent<Animator>();
         damagePlayerOnCollision = gameObject.GetComponentInChildren<DamagePlayerOnCollision>();
         healedZombieRun = gameObject.GetComponent<HealedZombieRun>();
+        destroyOnExitScreen = gameObject.GetComponentInChildren<DestroyOnExitScreen>();
+        destroyOnExitScreen.enabled = false;
 
         SupplyArrowSequence();
         InitializeArrowIcons();
@@ -126,6 +129,7 @@ public class GeneralArrowSequence : MonoBehaviour
         gameObject.GetComponent<Collider2D>().enabled = false;
         zombAnimator.SetBool("healedRun", true);
         healedZombieRun.enabled = true;
+        destroyOnExitScreen.enabled = true;
         
     }
 
