@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 57493600}
   - component: {fileID: 57493599}
   - component: {fileID: 57493602}
+  - component: {fileID: 57493603}
   m_Layer: 0
   m_Name: SI Pickup
   m_TagString: Untagged
@@ -339,6 +340,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupEffect: {fileID: 11400000, guid: 7ce20f9e79475324eb26e78a58962ec3, type: 2}
   particle: {fileID: 3886277281110871752, guid: a89b8b8bdc3f28e4b9569f607437fe58, type: 3}
+--- !u!114 &57493603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57493597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cc4e36d76a9ef4ea97530d5df778ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 3886277281110871752, guid: a89b8b8bdc3f28e4b9569f607437fe58, type: 3}
+  particleColor: {r: 0.972549, g: 0.972549, b: 0.9490196, a: 1}
 --- !u!1 &62112203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4484,6 +4499,7 @@ GameObject:
   - component: {fileID: 1633800739}
   - component: {fileID: 1633800738}
   - component: {fileID: 1633800737}
+  - component: {fileID: 1633800741}
   m_Layer: 0
   m_Name: Health Pickup
   m_TagString: Untagged
@@ -4598,6 +4614,20 @@ Transform:
   m_Father: {fileID: 518150702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633800741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633800736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cc4e36d76a9ef4ea97530d5df778ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 3886277281110871752, guid: a89b8b8bdc3f28e4b9569f607437fe58, type: 3}
+  particleColor: {r: 0.972549, g: 0.972549, b: 0.9490196, a: 1}
 --- !u!1 &1661904340
 GameObject:
   m_ObjectHideFlags: 0
