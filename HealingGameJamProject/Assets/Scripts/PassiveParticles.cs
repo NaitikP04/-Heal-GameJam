@@ -22,7 +22,6 @@ public class PassiveParticles : MonoBehaviour
             for (int i = 0; i < 4; i++){
                     GameObject p = Instantiate(particle, this.transform.position, Quaternion.identity, this.transform.parent.transform);
                     p.GetComponent<ParticleBehavior>().color = particleColor;
-                    print("PARTICLE HAS SPAWNED");
                 }
         }
     }

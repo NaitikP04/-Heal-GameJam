@@ -4408,19 +4408,21 @@ MonoBehaviour:
   outerRadius: 25
   waves:
   - name: Wave 1
-    zombieList:
+    zombieTypes:
     - zCount: 10
       zType: 0
     rate: 1
   - name: Wave 2
-    zombieList:
-    - zCount: 10
+    zombieTypes:
+    - zCount: 12
       zType: 0
     rate: 2
   - name: Wave 3
-    zombieList:
+    zombieTypes:
     - zCount: 12
       zType: 0
+    - zCount: 8
+      zType: 1
     rate: 2
   timeBetweenWaves: 5
   waveCountdown: 0

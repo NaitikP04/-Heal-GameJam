@@ -18,7 +18,7 @@ public class ZombieSpawner : MonoBehaviour
     public enum ZombieColor {Green, Purple, Blue};
 
     [System.Serializable]
-    public class ZombieGroup
+    public class ZombieType
     {
         public int zCount;
         public ZombieColor zType;
@@ -28,7 +28,7 @@ public class ZombieSpawner : MonoBehaviour
     public class Wave
     {
         public string name;
-        public List<ZombieGroup> zombieList;
+        public List<ZombieType> zombieTypes;
         public float rate;
     }
 
@@ -104,17 +104,17 @@ public class ZombieSpawner : MonoBehaviour
         state = SpawnState.SPAWNING;
         //spawn
 
-        for(int i = 0; i < _wave.zombieList.Count; i++)
+        for(int i = 0; i < _wave.zombieTypes.Count; i++)
         {
-            for(int j = 0; j < _wave.zombieList[i].zCount; j++)
+            for(int j = 0; j < _wave.zombieTypes[i].zCount; j++)
             {   
-                switch (_wave.zombieList[i].zType)
+                switch (_wave.zombieTypes[i].zType)
                 {
                     case ZombieColor.Green: SpawnZomb(greenZombie); break;
                     case ZombieColor.Purple: SpawnZomb(purpleZombie); break;
                     case ZombieColor.Blue: SpawnZomb(blueZombie); break;
                 }
-                print($"{_wave.name}: spawned a {_wave.zombieList[i].zType} zombie. {j+1} of {_wave.zombieList[i].zCount}.");
+                print($"{_wave.name}: spawned a {_wave.zombieTypes[i].zType} zombie. {j+1} of {_wave.zombieTypes[i].zCount}.");
 
                 yield return new WaitForSeconds(1f / _wave.rate);
             }
