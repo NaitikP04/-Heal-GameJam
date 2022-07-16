@@ -138,3 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   rigiddbody: {fileID: -4019831408072940523}
+  particle: {fileID: 3886277281110871752, guid: a89b8b8bdc3f28e4b9569f607437fe58, type: 3}
+  particleColor: {r: 0.45882353, g: 0.44313726, b: 0.36862746, a: 1}

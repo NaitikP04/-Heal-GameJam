@@ -7,6 +7,9 @@ public class ProjectileBehavior : MonoBehaviour
 
     public float speed = 15f;
     public Rigidbody2D rigiddbody;
+    [SerializeField] GameObject particle;
+    [SerializeField] Color particleColor;
+    [SerializeField] Transform particleParent;
     
     void Start()
     {
@@ -18,9 +21,19 @@ public class ProjectileBehavior : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other)
     {
             if (other.tag == "Enemy Trigger"){ other.GetComponent<TriggerDestroyGrandparent>().DestroyGrandparent(); }
-            if (other.tag != "Player" && other.tag != "CameraBounds"){ Destroy(this.gameObject); }
+            if (other.tag == "Environment"){ Destroy(this.gameObject); SpawnEnvironmentParticles(); }
     }
 
+    void SpawnEnvironmentParticles()
+    {
+        particleParent = GameObject.FindWithTag("GameManager").transform;
+        for (int i = 0; i < 8; i++){
+            GameObject p = Instantiate(particle, this.transform.position, Quaternion.identity, particleParent);
+            ParticleBehavior pb = p.GetComponent<ParticleBehavior>();
+            pb.color = particleColor;
+            pb.delay = 0.5f;
+        }
+    }
     IEnumerator BulletDecayRoutine()
     {
         yield return new WaitForSeconds(2);

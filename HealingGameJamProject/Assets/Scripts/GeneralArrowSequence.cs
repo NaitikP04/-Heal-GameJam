@@ -14,6 +14,8 @@ public class GeneralArrowSequence : MonoBehaviour
     List<string> sequence = new List<string>();
     List<string> currentState;
     PauseMenu pauseMenu;
+    Collider2D ourCollider;
+    Collider2D cameraBoundsCollider;
 
     [Header("=== DISPLAY ===")]
     [SerializeField] Color zombieColor;
@@ -46,8 +48,11 @@ public class GeneralArrowSequence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        zombieRenderer = gameObject.GetComponent<SpriteRenderer>();
         pauseMenu = GameObject.FindWithTag("Pause Button").GetComponent<PauseMenu>();
+        cameraBoundsCollider = GameObject.FindWithTag("CameraBounds").GetComponent<Collider2D>();
+        ourCollider = gameObject.GetComponent<Collider2D>();
+
+        zombieRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         iconTransformOffset = new Vector3(0f, (float)iconbarPixelOffset/32f, 0f);
         enemyChase = gameObject.GetComponent<EnemyChase>();
@@ -75,7 +80,8 @@ public class GeneralArrowSequence : MonoBehaviour
 
     void LogKeypress(string key)
     {
-        if (!pauseMenu.paused && !fullyHealed && key == currentState[0])
+        if (ourCollider.IsTouching(cameraBoundsCollider) &&
+            !pauseMenu.paused && !fullyHealed && key == currentState[0])
         {
             // If it's a match, remove the item from the current list.
             currentState.RemoveAt(0);

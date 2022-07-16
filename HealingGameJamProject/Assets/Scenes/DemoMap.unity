@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 174511}
   m_Layer: 0
   m_Name: house
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 62112204}
   m_Layer: 0
   m_Name: playable bounds
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 70035294}
   m_Layer: 0
   m_Name: trees
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 72420760}
   m_Layer: 7
   m_Name: hay bound2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,6 +572,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8607671766113653646, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8607671766168571608, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -620,6 +624,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree BB (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8607671766168571609, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607671766414941755, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
 --- !u!1 &110936118
@@ -633,7 +645,7 @@ GameObject:
   - component: {fileID: 110936119}
   m_Layer: 0
   m_Name: Environment
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -672,7 +684,7 @@ GameObject:
   - component: {fileID: 128071623}
   m_Layer: 11
   m_Name: bound 4
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -910,7 +922,7 @@ GameObject:
   - component: {fileID: 241157900}
   m_Layer: 7
   m_Name: barn bound6
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1036,9 +1048,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8814022447952883043, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_Name
       value: tree AA (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146153, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_RootOrder
@@ -1084,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814022448984166402, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
 --- !u!95 &290619627 stripped
@@ -1105,7 +1129,7 @@ GameObject:
   - component: {fileID: 314467020}
   m_Layer: 7
   m_Name: hay bound3 (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1240,6 +1264,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree AB (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3352930539858187558, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771887072142214390, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8337109723966549902, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1288,6 +1320,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8405891849589037185, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
 --- !u!1 &350199287
@@ -1304,7 +1340,7 @@ GameObject:
   - component: {fileID: 350199289}
   m_Layer: 7
   m_Name: barn bound2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1437,7 +1473,7 @@ GameObject:
   - component: {fileID: 356112578}
   m_Layer: 11
   m_Name: bound 1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1568,6 +1604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8607671766113653646, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8607671766168571608, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1620,6 +1660,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree BB (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8607671766168571609, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607671766414941755, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
 --- !u!1 &453171833
@@ -1634,7 +1682,7 @@ GameObject:
   - component: {fileID: 453171835}
   m_Layer: 0
   m_Name: grass (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1723,7 +1771,7 @@ GameObject:
   - component: {fileID: 472041976}
   m_Layer: 0
   m_Name: grass (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1812,7 +1860,7 @@ GameObject:
   - component: {fileID: 489824524}
   m_Layer: 0
   m_Name: grass (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2153,7 +2201,7 @@ GameObject:
   - component: {fileID: 563240202}
   m_Layer: 7
   m_Name: house bound1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2289,7 +2337,7 @@ GameObject:
   - component: {fileID: 642788069}
   m_Layer: 0
   m_Name: grass (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2373,7 +2421,7 @@ GameObject:
   - component: {fileID: 649490689}
   m_Layer: 0
   m_Name: barn-roof
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2456,6 +2504,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8607671766113653646, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8607671766168571608, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2503,6 +2555,14 @@ PrefabInstance:
     - target: {fileID: 8607671766168571609, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
       propertyPath: m_Name
       value: tree BB (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607671766168571609, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607671766414941755, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
@@ -2587,7 +2647,7 @@ GameObject:
   - component: {fileID: 711353684}
   m_Layer: 0
   m_Name: grass (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2666,9 +2726,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8814022447952883043, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_Name
       value: tree AA (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146153, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_RootOrder
@@ -2717,6 +2785,10 @@ PrefabInstance:
     - target: {fileID: 8814022448239146153, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814022448984166402, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
@@ -2879,7 +2951,7 @@ GameObject:
   - component: {fileID: 986898987}
   m_Layer: 7
   m_Name: house bound4
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3153,7 +3225,7 @@ GameObject:
   - component: {fileID: 1012483168}
   m_Layer: 11
   m_Name: bound 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3291,7 +3363,7 @@ GameObject:
   - component: {fileID: 1046125300}
   m_Layer: 7
   m_Name: barn bound3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3491,7 +3563,7 @@ GameObject:
   - component: {fileID: 1078641572}
   m_Layer: 7
   m_Name: barn bound5
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3629,7 +3701,7 @@ GameObject:
   - component: {fileID: 1081304000}
   m_Layer: 7
   m_Name: barn bound1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3760,7 +3832,7 @@ GameObject:
   - component: {fileID: 1116682900}
   m_Layer: 0
   m_Name: grass
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3846,7 +3918,7 @@ GameObject:
   - component: {fileID: 1131362197}
   m_Layer: 7
   m_Name: house bound3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3976,7 +4048,7 @@ GameObject:
   - component: {fileID: 1165520808}
   m_Layer: 0
   m_Name: building bounds
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4252,7 +4324,7 @@ GameObject:
   - component: {fileID: 1256319227}
   m_Layer: 7
   m_Name: barn bound4
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4384,7 +4456,7 @@ GameObject:
   - component: {fileID: 1315627907}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4435,7 +4507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315627904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3789215, y: -1.0234667, z: 0.09072858}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4539,7 +4611,7 @@ GameObject:
   - component: {fileID: 1614112550}
   m_Layer: 0
   m_Name: barn
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4721,7 +4793,7 @@ GameObject:
   - component: {fileID: 1661904342}
   m_Layer: 7
   m_Name: house bound5
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4854,7 +4926,7 @@ GameObject:
   - component: {fileID: 1703267637}
   m_Layer: 7
   m_Name: hay bound3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4987,7 +5059,7 @@ GameObject:
   - component: {fileID: 1709864987}
   m_Layer: 11
   m_Name: bound 3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5120,7 +5192,7 @@ GameObject:
   - component: {fileID: 1758289748}
   m_Layer: 7
   m_Name: house bound6
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5250,7 +5322,7 @@ GameObject:
   - component: {fileID: 1762165204}
   m_Layer: 0
   m_Name: grass
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5288,7 +5360,7 @@ GameObject:
   - component: {fileID: 1845583981}
   m_Layer: 0
   m_Name: barn-main
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5374,7 +5446,7 @@ GameObject:
   - component: {fileID: 1872117762}
   m_Layer: 7
   m_Name: hay bound1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5652,9 +5724,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4722058973948510309, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098130713634031263, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 5663364121206557876, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
       propertyPath: m_Name
       value: tree BA (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663364121206557876, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
@@ -5672,7 +5756,7 @@ GameObject:
   - component: {fileID: 1992744462}
   m_Layer: 7
   m_Name: house bound2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5798,9 +5882,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8814022447952883043, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_Name
       value: tree AA (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146153, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_RootOrder
@@ -5846,6 +5938,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8814022448984166402, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8814022448984166524, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_SortingOrder
       value: 6
@@ -5877,6 +5973,14 @@ PrefabInstance:
     - target: {fileID: 3352930539858187558, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
       propertyPath: m_Name
       value: tree AB
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352930539858187558, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771887072142214390, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 8337109723966549902, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
       propertyPath: m_RootOrder
@@ -5925,6 +6029,10 @@ PrefabInstance:
     - target: {fileID: 8337109723966549902, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405891849589037185, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39cf35279574ddf4b9c456d80788a9e1, type: 3}
@@ -6141,9 +6249,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4722058973948510309, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098130713634031263, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 5663364121206557876, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
       propertyPath: m_Name
       value: tree BA
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663364121206557876, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea9e51c5b7d16b45ad2e52a57ca1591, type: 3}
@@ -6154,6 +6274,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8607671766113653646, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8607671766168571608, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6202,6 +6326,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree BB
       objectReference: {fileID: 0}
+    - target: {fileID: 8607671766168571609, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607671766414941755, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8bd5263099f4ae4eab12f14e10e9edc, type: 3}
 --- !u!1001 &8814022448713405884
@@ -6211,9 +6343,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70035294}
     m_Modifications:
+    - target: {fileID: 8814022447952883043, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_Name
       value: tree AA
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814022448239146152, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 8814022448239146153, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_RootOrder
@@ -6262,6 +6402,10 @@ PrefabInstance:
     - target: {fileID: 8814022448239146153, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8814022448984166402, guid: e42186649b3a24e4d85c613f99573ede, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42186649b3a24e4d85c613f99573ede, type: 3}

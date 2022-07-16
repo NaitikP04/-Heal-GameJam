@@ -7,6 +7,7 @@ public class ParticleBehavior : MonoBehaviour
     Rigidbody2D rgbd2d;
     Vector3 direction;
     public Color color;
+    public float delay = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class ParticleBehavior : MonoBehaviour
 
     IEnumerator Lifetime()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(delay);
 
         float elapsed = 0;
         while (elapsed < 0.5f){

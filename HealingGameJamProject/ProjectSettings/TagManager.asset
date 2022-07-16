@@ -13,6 +13,8 @@ TagManager:
   - Health UI Animator
   - Ammo UI Animator
   - Pause Button
+  - Environment
+  - GameManager
   layers:
   - Default
   - TransparentFX
