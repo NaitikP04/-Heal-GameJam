@@ -20,6 +20,7 @@ public class HealedZombieRun : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         InitializeDirection();
+        StartCoroutine(FadeRoutine());
 
         // REPLACE: CODE THAT DOES ATTRACTION ON STARTUP IF WE'RE TOUCHING A COLLIDER
         // if (other.tag == "HealedRun Attractor"){ print("attracted"); }
@@ -33,6 +34,29 @@ public class HealedZombieRun : MonoBehaviour
         // SPRITE FLIPPING
         if (direction.x > 0){ sprite.flipX = false; }
         if (direction.x < 0){ sprite.flipX = true; }
+    }
+
+    IEnumerator FadeRoutine()
+    {        
+        // THIS IS CODE WHICH MAKES HEALED ZOMBIES FADE OUT
+        // THIS IS SO THAT THE PLAYER DOESN'T SEEM THEM WALK THROUGH WALLS
+        // A more ideal solution would be pathfinding, but we don't have that luxury sadly :I
+
+        yield return new WaitForSeconds(0.5f);
+
+        float alpha = 100;
+        float elapsed = 0;
+        float maxTime = 0.5f;
+        Color currentColor = sprite.color;
+
+        while (elapsed < maxTime){
+
+                alpha = Mathf.Lerp(1f, 0f, (elapsed/maxTime));
+                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, alpha);
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
     }
 
     void OnTriggerEnter2D(Collider2D other)
