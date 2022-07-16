@@ -2807,7 +2807,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.23578571}
+  m_Offset: {x: 0, y: -0.36842006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2818,7 +2818,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.52842855}
+  m_Size: {x: 1, y: 0.26315987}
   m_EdgeRadius: 0
 --- !u!50 &683552233
 Rigidbody2D:
@@ -4936,11 +4936,20 @@ MonoBehaviour:
     zombieTypes:
     - zCount: 28
       zType: 0
-    - zCount: 14
+    - zCount: 16
       zType: 1
     - zCount: 12
-      zType: 1
+      zType: 2
     rate: 3
+  - name: Wave 5
+    zombieTypes:
+    - zCount: 35
+      zType: 0
+    - zCount: 14
+      zType: 2
+    - zCount: 20
+      zType: 1
+    rate: 5
   timeBetweenWaves: 5
   waveCountdown: 0
   state: 2
