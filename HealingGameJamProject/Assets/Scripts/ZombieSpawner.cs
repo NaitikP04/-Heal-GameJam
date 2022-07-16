@@ -42,10 +42,11 @@ public class ZombieSpawner : MonoBehaviour
 
     public SpawnState state = SpawnState.COUNTING;
 
+    public GameObject gameOverScreen;
+
     void Start()
     {
         waveCountdown = timeBetweenWaves;
-        //StartCoroutine(SpawnRoutine());
     }
 
     void Update()
@@ -78,6 +79,7 @@ public class ZombieSpawner : MonoBehaviour
 
         if(nextWave + 1 > waves.Length - 1)
         {
+            GameWon();
             nextWave = 0;
             Debug.Log("Completed all waves! Looping..."); //change to a game completed screen
         }
@@ -132,5 +134,12 @@ public class ZombieSpawner : MonoBehaviour
         float ratio = innerRadius / outerRadius;
         float radius = Mathf.Sqrt(Random.Range(ratio*ratio, 1f)) * outerRadius;
         return Random.insideUnitCircle.normalized * radius;
+    }
+    
+    void GameWon()
+    {
+        Time.timeScale = 0f;
+        //get GameWonCard from main camera and enable it
+        gameOverScreen.SetActive(true);
     }
 }

@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
     public bool invulnerable = false;
     public bool SIBuffActive = false;
 
+    public GameObject gameLossScreen;
+
     void Update()
     {
         suitcaseHealthbar = GameObject.FindWithTag("Health UI Animator").GetComponent<Animator>();
@@ -25,6 +27,9 @@ public class Health : MonoBehaviour
         }
         if (!invulnerable){
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+        }
+        if (health == 0){
+            GameLost();
         }
     }
 
@@ -51,5 +56,12 @@ public class Health : MonoBehaviour
         // Universal function for changing health. Used by other class functions TakeDamage, etc.
         // Avoid using ChangeHealth() from other scripts wherever possible, for tidyness.
         health += amount; 
+    }
+    
+    void GameLost()
+    {
+        Time.timeScale = 0f;
+        //get GameLostCard from main camera and enable it
+        gameLossScreen.SetActive(true);
     }
 }

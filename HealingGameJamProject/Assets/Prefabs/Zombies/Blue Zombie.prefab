@@ -206,7 +206,7 @@ MonoBehaviour:
   fullyHealed: 0
   stopRandomly: 1
   stopped: 0
-  moveRandomly: 1
+  moveRandomly: 0
 --- !u!114 &6959260273347141073
 MonoBehaviour:
   m_ObjectHideFlags: 0
